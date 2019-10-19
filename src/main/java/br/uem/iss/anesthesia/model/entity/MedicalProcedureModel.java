@@ -66,4 +66,8 @@ public class MedicalProcedureModel extends DefaultModel {
     public MedicalProcedureModel(Long id) {
         this.setId(id);
     }
+
+    public void inactivate() {
+        active = false;
+    }
 }
