@@ -48,17 +48,6 @@ public class MedicalProcedureController {
         return viewWithoutMessage(medicalProcedureRepository.findById(id).get());
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView deleteMedicalProcedure(@PathVariable Long id) {
-        MedicalProcedureModel medicalProcedure =  medicalProcedureRepository.findById(id).get();
-        medicalProcedure.inactivate();
-        try {
-            saveMedicalProcedureBusiness.save(medicalProcedure);
-        } catch (BusinessRuleException e) {
-        }
-        return new MedicalProcedureIndexView(medicalProcedureRepository.findByActiveTrue());
-    }
-
 
     @PostMapping
     public ModelAndView saveMedicalProcedure(@Valid MedicalProcedureModel medicalProcedure) {
