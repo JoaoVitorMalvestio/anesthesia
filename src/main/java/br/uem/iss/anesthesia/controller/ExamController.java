@@ -25,15 +25,16 @@ public class ExamController {
     private SaveExamBusiness saveExamBusiness;
 
     @GetMapping
-    public ModelAndView listExam(@RequestParam(value = "filtro_name", required = false) String name, boolean ativo)  {
+    public ModelAndView listExam(@RequestParam(value = "filtro_name", required = false) String name,
+                                 @RequestParam(value = "filtro_ativo", required = false, defaultValue = "true") boolean ativo)  {
         Iterable<ExamModel> exam;
         name    = ((name == null) ? "" : name);
         if (ativo) {
-            exam = examRepository.findByActiveTrue();
+            exam = examRepository.findByNameContainingAndActiveTrue(name);
         }else{
-            exam = examRepository.findByActiveTrue();
+            exam = examRepository.findByNameContainingAndActiveFalse(name);
         }
-        return new ExamIndexView(exam, name,true);
+        return new ExamIndexView(exam, name, ativo);
     }
 
     @GetMapping("/new")

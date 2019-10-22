@@ -14,25 +14,24 @@
                 </nav>
             </div>
             <div class="row">
-                <form method="get">
-                    <div class="input-field col s3">
-                        <input id="codigo" name="codigo" type="text">
-                        <label for="codigo">Código</label>
+                <form th:action="@{/exam}" method="get">
+                    <div class="input-field col s8">
+                        <input id="filtro_name" name="filtro_name" type="text" th:value="${filtro_name}">
+                        <label for="filtro_name">Nome</label>
                     </div>
-                    <div class="input-field col s7">
-                        <input id="name" name="name" type="text">
-                        <label for="name">Nome</label>
+                    <div class="input-field col s2">
+                        <select id="filtro_ativo" name="filtro_ativo" th:value="${filtro_ativo}">
+                            <option th:value="true" th:text="Sim" th:selected="${filtro_ativo == true}"></option>
+                            <option th:value="false" th:text="Não" th:selected="${filtro_ativo == false}"></option>
+                        </select>
+                        <label for="filtro_ativo">Ativo</label>
                     </div>
                     <div class="col s2">
                         <div class="row">
-                            <div class="col s6">
-                                <a href="/exam" class="btn-floating btn-large waves-effect waves-light blue"><i
-                                        class="material-icons">clear_all</i></a>
-                            </div>
-                            <div class="col s6">
-                                <button type="submit" class="btn-floating btn-large waves-effect waves-light blue"><i
-                                        class="material-icons">done</i></button>
-                            </div>
+                            <a onclick="limparcampos()" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Limpar Campos">
+                                <i class="material-icons">clear_all</i></a>
+                            <button type="submit" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Pesquisar"><i
+                                    class="material-icons">search</i></button>
                         </div>
                     </div>
                 </form>

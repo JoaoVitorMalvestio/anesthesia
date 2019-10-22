@@ -14,4 +14,5 @@ public interface ExamRepository extends CrudRepository<ExamModel, Long> {
 
     Iterable<ExamModel> findByActiveTrue();
     Iterable<ExamModel> findByNameContainingAndActiveTrue(String name);
+    Iterable<ExamModel> findByNameContainingAndActiveFalse(String name);
 }
