@@ -14,7 +14,7 @@ public class MedicalProcedureModel extends DefaultModel {
     private String name;
     private boolean active = true;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<ExamModel> exams;  //Vai vir do crud do Marcus
+    private Set<ExamModel> exams;  
 
     public String getName() {
         return name;
