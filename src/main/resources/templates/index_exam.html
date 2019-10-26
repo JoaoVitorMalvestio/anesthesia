@@ -1,0 +1,70 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <div class="container">
+        <div class="row">
+            <h2 class="center">Cadastro de Exames</h2>
+            <div class="row">
+                <nav>
+                    <div class="nav-wrapper blue darken-1">
+                        <div class="col s12">
+                            <a class="breadcrumb" th:href="@{/}">Home</a>
+                            <a class="breadcrumb">Cadastro de Exames</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <form th:action="@{/exam}" method="get">
+                    <div class="input-field col s8">
+                        <input id="filtro_name" name="filtro_name" type="text" th:value="${filtro_name}">
+                        <label for="filtro_name">Nome</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <select id="filtro_ativo" name="filtro_ativo" th:value="${filtro_ativo}">
+                            <option th:value="true" th:text="Sim" th:selected="${filtro_ativo == true}"></option>
+                            <option th:value="false" th:text="Não" th:selected="${filtro_ativo == false}"></option>
+                        </select>
+                        <label for="filtro_ativo">Ativo</label>
+                    </div>
+                    <div class="col s2">
+                        <div class="row">
+                            <a onclick="limparcampos()" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Limpar Campos">
+                                <i class="material-icons">clear_all</i></a>
+                            <button type="submit" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Pesquisar"><i
+                                    class="material-icons">search</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th><a href="/exam/new" class="btn-floating btn-small waves-effect waves-light blue"><i
+                            class="material-icons">add</i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="exam : ${exams}">
+                    <td><span th:text="${exam.id}"></span></td>
+                    <td><span th:text="${exam.name}"></span></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light blue delete"
+                           th:data-url="${(#mvc.url('EC#deleteExam').arg(0, exam.id)).build()}"><i
+                                class="material-icons">delete</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue"
+                           th:href="${(#mvc.url('EC#editExam').arg(0, exam.id)).build()}"><i
+                                class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue"
+                           th:href="${'/report/exam-registry/' + exam.id}"><i
+                                class="material-icons">local_printshop</i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</html>

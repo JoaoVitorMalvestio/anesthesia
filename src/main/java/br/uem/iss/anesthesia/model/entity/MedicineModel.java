@@ -5,10 +5,11 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Backgrounds")
-public class BackgroundModel extends DefaultModel {
+@Table(name = "Medicines")
+public class MedicineModel extends DefaultModel {
 
     private String name;
+
     private boolean active;
 
     public String getName() {
@@ -31,9 +32,9 @@ public class BackgroundModel extends DefaultModel {
     public boolean equals(Object o) {
         if (this == o)
             return true;
-        if (!(o instanceof BackgroundModel))
+        if (!(o instanceof MedicineModel))
             return false;
-        BackgroundModel that = (BackgroundModel) o;
+        MedicineModel that = (MedicineModel) o;
         return Objects.equals(getName(), that.getName());
     }
 
@@ -47,4 +48,3 @@ public class BackgroundModel extends DefaultModel {
         return getName();
     }
 }
-
