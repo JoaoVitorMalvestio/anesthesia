@@ -47,3 +47,4 @@ public class BackgroundModel extends DefaultModel {
         return getName();
     }
 }
+
