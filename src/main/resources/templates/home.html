@@ -1,8 +1,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <div th:fragment="corpo">
-        <div class="container">
+<div th:fragment="corpo">
+
+    <div class="container">
+        <div class="row">
+
             <div class="row">
 
+                <div class="col s12 m6">
+                    <div class="card brown darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Procedimentos Médicos</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/medicalProcedure}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col s12 m6">
+                    <div class="card teal darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Antecedentes Clinicos</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/background}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="card red darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Exames</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/exam}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col s12 m6">
                     <div class="card green darken-1">
                         <div class="card-content white-text">
@@ -14,12 +50,33 @@
                     </div>
                 </div>
             </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card blue darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Pacientes</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/patient}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
 
 
+                <div class="col s12 m6">
+                    <div class="card purple darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Processos</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/process}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
 
 
-
-
+            </div>
         </div>
     </div>
 </html>
