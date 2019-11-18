@@ -5,9 +5,7 @@ import br.uem.iss.anesthesia.model.business.exception.NullContentNotAllowedExcep
 import br.uem.iss.anesthesia.model.business.validator.CpfValidator;
 import br.uem.iss.anesthesia.model.business.validator.NameNotNullValidator;
 import br.uem.iss.anesthesia.model.business.validator.SurnameNotNullValidator;
-import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.ExamModel;
-import br.uem.iss.anesthesia.model.repository.DoctorRepository;
 import br.uem.iss.anesthesia.model.repository.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
