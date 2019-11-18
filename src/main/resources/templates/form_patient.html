@@ -1,0 +1,124 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <div class="container">
+        <div class="row">
+            <h2 class="center">Cadastro de Pacientes</h2>
+            <div class="row">
+                <nav>
+                    <div class="nav-wrapper blue darken-1">
+                        <div class="col s12">
+                            <a class="breadcrumb" th:href="@{/}">Home</a>
+                            <a class="breadcrumb">Cadastro de Pacientes</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <th:block th:if="${!(message == null)}" th:include="message"></th:block>
+            <form action="#" th:action="@{/patient}" th:object="${patient}" method="post">
+                <input id="id" th:field="*{id}" type="hidden">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="name" th:field="*{name}" type="text">
+                        <label for="name">Nome</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="surname" th:field="*{surname}" type="text">
+                        <label for="surname">Sobrenome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s2">
+                        <select id="gender" th:field="*{gender}">
+                            <option th:each="genderOption : ${genderOptions}" th:value="${{genderOption}}"
+                                    th:text="${genderOption}">
+                            </option>
+                        </select>
+                        <label for="gender">Sexo</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="birthday" th:field="*{birthday}" type="text" class="datepicker">
+                        <label for="birthday">Data de Nascimento</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input id="religion" th:field="*{religion}" type="text">
+                        <label for="religion">Religião</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <select id="civilState" th:field="*{civilState}">
+                            <option th:each="civilStateOption : ${civilStateOptions}" th:value="${{civilStateOption}}"
+                                    th:text="${civilStateOption}">
+                            </option>
+                        </select>
+                        <label for="civilState">Estado Civil</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s3">
+                        <input id="city" th:field="*{city.name}" type="text" class="autocomplete">
+                        <label for="city">Cidade</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="uf" th:field="*{city.uf}" type="text" class="autocomplete">
+                        <label for="uf">Unidade Federativa</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="postalCode" th:field="*{postalCode}" type="text">
+                        <label for="postalCode">CEP</label>
+                    </div>
+                    <div class="input-field col s5">
+                        <input id="address" th:field="*{address}" type="text">
+                        <label for="address">Endereço</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s2">
+                        <input id="phoneNumber" th:field="*{phoneNumber}" type="text">
+                        <label for="phoneNumber">Telefone fixo</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="cellphoneNumber" th:field="*{cellphoneNumber}" type="text">
+                        <label for="cellphoneNumber">Telefone celular</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="email" th:field="*{email}" type="text">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="cpf" th:field="*{cpf}" type="text">
+                        <label for="cpf">CPF</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input id="rg" th:field="*{rg}" type="text">
+                        <label for="rg">RG</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select th:field="*{backgrounds}" multiple>
+                            <option value="" disabled>Selecione os antencedentes</option>
+                            <option th:each="background : ${backgrounds}" th:value="${{background}}"
+                                    th:text="${background}">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select th:field="*{medicines}" multiple>
+                            <option value="" disabled>Selecione os medicamentos</option>
+                            <option th:each="medicine : ${medicines}" th:value="${{medicine}}"
+                                    th:text="${medicine}">
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="waves-effect waves-light btn" type="submit">Salvar
+                    <i class="material-icons right">send</i>
+                </button>
+                <a href="/patient" class="waves-effect waves-light btn">Voltar</a>
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/form_patient.js}"></script>
+</div>
+
+</html>

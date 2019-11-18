@@ -2,20 +2,24 @@
 <div th:fragment="corpo">
     <div class="container">
         <div class="row">
-            <h2 class="center">Cadastro de Exames</h2>
+            <h2 class="center">Cadastro de Médicos</h2>
             <div class="row">
                 <nav>
                     <div class="nav-wrapper blue darken-1">
                         <div class="col s12">
                             <a class="breadcrumb" th:href="@{/}">Home</a>
-                            <a class="breadcrumb">Cadastro de Exames</a>
+                            <a class="breadcrumb">Cadastro de Médicos</a>
                         </div>
                     </div>
                 </nav>
             </div>
             <div class="row">
-                <form th:action="@{/exam}" method="get">
-                    <div class="input-field col s8">
+                <form th:action="@{/doctor}" method="get">
+                    <div class="input-field col s3">
+                        <input id="filtro_crm" name="filtro_crm" type="text" th:value="${filtro_crm}">
+                        <label for="filtro_crm">CRM</label>
+                    </div>
+                    <div class="input-field col s5">
                         <input id="filtro_name" name="filtro_name" type="text" th:value="${filtro_name}">
                         <label for="filtro_name">Nome</label>
                     </div>
@@ -36,35 +40,42 @@
                     </div>
                 </form>
             </div>
-            <table>
+            <table >
                 <thead>
-                <tr>
+                <tr >
                     <th>Código</th>
+                    <th>CRM</th>
                     <th>Nome</th>
-                    <th><a href="/exam/new" class="btn-floating btn-small waves-effect waves-light blue"><i
+                    <th><a href="/doctor/new" class="btn-floating btn-small waves-effect waves-light blue tooltipped"data-tooltip="Adicionar"><i
                             class="material-icons">add</i></a>
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="exam : ${exams}">
-                    <td><span th:text="${exam.id}"></span></td>
-                    <td><span th:text="${exam.name}"></span></td>
+                <tr th:each="doctor : ${doctors}">
+                    <td th:text="${doctor.id}"><span></span></td>
+                    <td th:text="${doctor.crm}"><span></span></td>
+                    <td th:text="${doctor.name}"><span></span></td>
                     <td>
-                        <a class="btn-floating btn-small waves-effect waves-light blue delete"
-                           th:data-url="${(#mvc.url('EC#deleteExam').arg(0, exam.id)).build()}"><i
-                                class="material-icons">delete</i></a>
-                        <a class="btn-floating btn-small waves-effect waves-light blue"
-                           th:href="${(#mvc.url('EC#editExam').arg(0, exam.id)).build()}"><i
-                                class="material-icons">edit</i></a>
-                        <a class="btn-floating btn-small waves-effect waves-light blue"
-                           th:href="${'/report/exam-registry/' + exam.id}"><i
-                                class="material-icons">local_printshop</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue tooltipped"
+                           th:href="${(#mvc.url('DC#editDoctor').arg(0, doctor.id)).build()}" data-tooltip="Editar"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue delete tooltipped"
+                           th:data-url="${(#mvc.url('DC#deleteDoctor').arg(0, doctor.id)).build()}" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <div id="confirm_dialog" class="modal">
+        <div class="modal-content">
+            <h4>Deseja Realmente Excluir o Registro?</h4>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Confirmar</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
 </div>
+
 </html>
