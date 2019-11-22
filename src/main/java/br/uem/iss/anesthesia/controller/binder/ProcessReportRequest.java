@@ -1,6 +1,5 @@
-package br.uem.iss.anesthesia.controller.request;
+package br.uem.iss.anesthesia.controller.binder;
 
-import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.PatientModel;
 
 import java.time.LocalDate;
