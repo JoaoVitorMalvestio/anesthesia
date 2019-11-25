@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resumo do Médico</title>
+    <style>
+        h1 {
+            color: #0D47A1;
+            font-family: Calibri;
+            font-size: 60px;
+        }
+
+        h2 {
+            color: black;;
+            font-family: Times;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        span {
+            display: block;
+        }
+
+        tr > th {
+            color: #0D47A1;
+            font-family: Calibri;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        tr > td {
+            color: black;
+            font-family: Times;
+            font-size: 16px;
+        }
+
+        tr > td:nth-child(1) {
+            width: 250px;
+        }
+
+        tr > td:nth-child(2) {
+            width: 250px;
+        }
+
+        tr > td:nth-child(3) {
+            width: 150px;
+        }
+    </style>
+</head>
+<body onload="window.print()">
+<h1>Resumo do Médico</h1>
+<h2><span th:text="${description}"></span></h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome do Médico</th>
+        <th>Nome do Paciente</th>
+        <th>Data da Consulta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="appointment : ${appointments}">
+        <td><span th:text="${appointment.process.doctor.name    }"></span></td>
+        <td><span th:text="${appointment.process.patient.name + ' ' + appointment.process.patient.surname}"></span></td>
+        <td><span th:text="${#temporals.format(appointment.date, 'dd/MM/yyyy HH:mm:ss')}"></span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -5,9 +5,7 @@ import br.uem.iss.anesthesia.model.entity.PatientModel;
 import br.uem.iss.anesthesia.model.entity.ProcessModel;
 import org.springframework.data.repository.CrudRepository;
 
-import javax.print.Doc;
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public interface ProcessRepository extends CrudRepository<ProcessModel, Long> {
 

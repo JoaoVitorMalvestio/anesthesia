@@ -1,6 +1,7 @@
 package br.uem.iss.anesthesia.controller;
 
 import br.uem.iss.anesthesia.controller.request.PatientReportRequest;
+import br.uem.iss.anesthesia.controller.request.DoctorResumeReportRequest;
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
 import br.uem.iss.anesthesia.model.entity.AppointmentModel;
 import br.uem.iss.anesthesia.model.entity.DoctorModel;
@@ -52,6 +53,11 @@ public class ReportController extends AbstractController {
     @GetMapping("/patient-report")
     public AbstractModelAndView patientReport() {
         return new PatientReportFormView(doctorRepository.findAll());
+    }
+
+    @GetMapping("/doctor_resume-report")
+    public AbstractModelAndView doctorResumeReportReport() {
+        return new DoctorResumeReportFormView(doctorRepository.findAll());
     }
 
     @PostMapping("/patient-report")
