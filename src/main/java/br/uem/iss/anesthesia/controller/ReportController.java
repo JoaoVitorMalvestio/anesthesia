@@ -85,6 +85,10 @@ public class ReportController extends AbstractController {
     }
 
 
+    @GetMapping("/advanced-report")
+    public AbstractModelAndView formAdvancedReport(){
+        return new AdvancedReportFormView(processRepository.findAll());
+    }
 
 
     @GetMapping("/listagem-report")
