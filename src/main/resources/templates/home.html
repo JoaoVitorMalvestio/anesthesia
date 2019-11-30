@@ -4,6 +4,27 @@
     <div class="container">
         <div class="row">
 
+                <div class="col s12 m6">
+                    <div class="card blue darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Pacientes</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/patient}">Clique aqui</a>
+                        </div>
+                    </div>
+                </div>
+            <div class="col s12 m6">
+                <div class="card purple darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Processos</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/process}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
 
                 <div class="col s12 m6">
@@ -16,7 +37,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <div class="col s12 m6">
                     <div class="card teal darken-1">
@@ -49,20 +69,19 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
-
-            <div class="col s12 m6">
-                <div class="card grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Relatórios</span>
-                    </div>
-                    <div class="card-action">
-                        <a th:href="@{/report}">Clique aqui</a>
+                <div class="col s12 m6">
+                    <div class="card orange darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Usuários</span>
+                        </div>
+                        <div class="card-action">
+                            <a th:href="@{/user}">Clique aqui</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            </div>
             <div class="row">
                 <div class="col s12 m6">
                     <div class="card blue darken-1">
@@ -89,6 +108,8 @@
 
 
             </div>
+    </div>
+
         </div>
     </div>
 </html>
