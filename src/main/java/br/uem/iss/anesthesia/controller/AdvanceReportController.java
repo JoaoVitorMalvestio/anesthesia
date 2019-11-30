@@ -2,6 +2,7 @@ package br.uem.iss.anesthesia.controller;
 
 
 import br.uem.iss.anesthesia.model.entity.AppoinmentFilter;
+import br.uem.iss.anesthesia.model.entity.AppointmentModel;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.util.DateSupport;
 import br.uem.iss.anesthesia.view.AbstractModelAndView;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Controller
 @RequestMapping("/advance")
@@ -29,7 +31,12 @@ public class AdvanceReportController extends AbstractController {
     @GetMapping
     public ModelAndView advanceRegistry(@ModelAttribute("filter") AppoinmentFilter filter) {
         // return new AppoinmentRegistryView((AppointmentModel) appointmentRepository.findByDateBetween(converteData(filter.getInitial()),  converteData(filter.getEnd())));
-        return new AbstractModelAndView("advance_report");
+        //return new AbstractModelAndView("advance_report");
+
+        List<AppointmentModel> listaTodosTeste = appointmentRepository.findByDateBetween(converteData(filter.getInitial()), converteData(filter.getEnd()));
+        ModelAndView mv = new ModelAndView("advance_report");
+        mv.addObject("Ausencias", listaTodosTeste);
+        return mv;
     }
 
     private LocalDateTime converteData(String data){
