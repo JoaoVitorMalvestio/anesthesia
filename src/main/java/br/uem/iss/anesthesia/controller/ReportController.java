@@ -90,6 +90,10 @@ public class ReportController extends AbstractController {
         return new AdvancedReportFormView(processRepository.findAll());
     }
 
+  /*  @getMapping("/crud-report")
+    public AbstractModelAndView formRegisterReport(){
+        return new
+    }*/
 
     @GetMapping("/listagem-report")
     public AbstractModelAndView listagenReport() {
