@@ -1,11 +1,15 @@
 package br.uem.iss.anesthesia.controller;
 
+<<<<<<< HEAD
 import br.uem.iss.anesthesia.controller.request.PatientReportRequest;
 import br.uem.iss.anesthesia.controller.request.DoctorResumeReportRequest;
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
 import br.uem.iss.anesthesia.model.entity.AppointmentModel;
 import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.PatientModel;
+=======
+import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
+>>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
 import br.uem.iss.anesthesia.model.entity.ProcessModel;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.model.repository.DoctorRepository;
@@ -17,9 +21,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.util.List;
 
+=======
+>>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
 @Controller
 @RequestMapping("/report")
 public class ReportController extends AbstractController {
@@ -55,11 +62,14 @@ public class ReportController extends AbstractController {
         return new PatientReportFormView(doctorRepository.findAll());
     }
 
+<<<<<<< HEAD
     @GetMapping("/doctor_resume-report")
     public AbstractModelAndView doctorResumeReportReport() {
         return new DoctorResumeReportFormView(doctorRepository.findAll());
     }
 
+=======
+>>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
     @PostMapping("/patient-report")
 
     @GetMapping("/process-report")
