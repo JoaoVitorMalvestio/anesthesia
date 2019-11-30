@@ -1,6 +1,7 @@
 package br.uem.iss.anesthesia.controller;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import br.uem.iss.anesthesia.controller.request.PatientReportRequest;
 import br.uem.iss.anesthesia.controller.request.DoctorResumeReportRequest;
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
@@ -10,6 +11,10 @@ import br.uem.iss.anesthesia.model.entity.PatientModel;
 =======
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
 >>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
+=======
+import br.uem.iss.anesthesia.controller.AbstractController;
+import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
+>>>>>>> 30cc70466419f09ac867ac40b700c24b5147d65e
 import br.uem.iss.anesthesia.model.entity.ProcessModel;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.model.repository.DoctorRepository;
@@ -22,11 +27,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.util.List;
 
 =======
 >>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
+=======
+>>>>>>> 30cc70466419f09ac867ac40b700c24b5147d65e
 @Controller
 @RequestMapping("/report")
 public class ReportController extends AbstractController {
@@ -63,6 +71,7 @@ public class ReportController extends AbstractController {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @GetMapping("/doctor_resume-report")
     public AbstractModelAndView doctorResumeReportReport() {
         return new DoctorResumeReportFormView(doctorRepository.findAll());
@@ -72,6 +81,11 @@ public class ReportController extends AbstractController {
 >>>>>>> f2cb81d5208346219204bead1f48e680b0c4c620
     @PostMapping("/patient-report")
 
+=======
+    @PostMapping("/patient-report")
+
+
+>>>>>>> 30cc70466419f09ac867ac40b700c24b5147d65e
     @GetMapping("/process-report")
     public AbstractModelAndView formProcessReport() {
         return new ProcessReportFormView(patientRepository.findAll(), new ProcessReportRequest(), null);
@@ -102,6 +116,27 @@ public class ReportController extends AbstractController {
 
     @GetMapping("/absence-report")
     public AbstractModelAndView formAbsenceReport() {
+<<<<<<< HEAD
         return new AbsenseReportFormView(new ProcessReportRequest(), null);
+=======
+        return new AbsenseReportFormView(processRepository.findAll());
+    }
+
+
+    @GetMapping("/advanced-report")
+    public AbstractModelAndView formAdvancedReport(){
+        return new AdvancedReportFormView(processRepository.findAll());
+    }
+
+  /*  @getMapping("/crud-report")
+    public AbstractModelAndView formRegisterReport(){
+        return new
+    }*/
+
+    @GetMapping("/listagem-report")
+    public AbstractModelAndView listagenReport() {
+        AbstractModelAndView mv = new AbstractModelAndView("new_report_listagem");
+        return mv;
+>>>>>>> 30cc70466419f09ac867ac40b700c24b5147d65e
     }
 }
