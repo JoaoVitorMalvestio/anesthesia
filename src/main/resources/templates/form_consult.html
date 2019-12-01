@@ -13,7 +13,7 @@
                     </div>
                 </nav>
             </div>
-            <th:block th:include="message"></th:block>
+            <!--<th:block th:include="message"></th:block>-->
             <form action="#" th:action="@{/consult}" th:object="${consult}" method="post">
                 <div class="input-field col s2">
                     <input id="date" th:field="*{date}" type="text" class="datepicker">

@@ -2,10 +2,7 @@ package br.uem.iss.anesthesia.model.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-<<<<<<< HEAD
 import java.util.Calendar;
-=======
->>>>>>> 30cc70466419f09ac867ac40b700c24b5147d65e
 import java.util.List;
 
 @Entity

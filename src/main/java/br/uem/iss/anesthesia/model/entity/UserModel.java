@@ -42,9 +42,7 @@ public class UserModel extends DefaultModel {
         if (!(o instanceof UserModel))
             return false;
         UserModel that = (UserModel) o;
-        return Objects.equals(getLogin(), that.getLogin()) &&
-               Objects.equals(getPassword(), that.getPassword()) &&
-               Objects.equals(getUserType(), that.getUserType());
+        return Objects.equals(getLogin(), that.getLogin());
     }
 
     @Override
