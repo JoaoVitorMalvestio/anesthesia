@@ -30,9 +30,6 @@ public class AdvanceReportController extends AbstractController {
 
     @GetMapping
     public ModelAndView advanceRegistry(@ModelAttribute("filter") AppoinmentFilter filter) {
-        // return new AppoinmentRegistryView((AppointmentModel) appointmentRepository.findByDateBetween(converteData(filter.getInitial()),  converteData(filter.getEnd())));
-        //return new AbstractModelAndView("advance_report");
-
         List<AppointmentModel> listaTodosTeste = appointmentRepository.findByDateBetween(converteData(filter.getInitial()), converteData(filter.getEnd()));
         ModelAndView mv = new ModelAndView("advance_report");
         mv.addObject("Ausencias", listaTodosTeste);

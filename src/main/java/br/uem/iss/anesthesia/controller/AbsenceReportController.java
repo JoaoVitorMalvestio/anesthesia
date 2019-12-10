@@ -27,11 +27,11 @@ public class AbsenceReportController extends AbstractController {
         this.dateSupport = dateSupport;
     }
 
-    @GetMapping //vou fazer aqui
+    @GetMapping
     public ModelAndView absenceRegistry(@ModelAttribute("filter") AppoinmentFilter filter) {
         List<AppointmentModel> listaTodosTeste = appointmentRepository.findByDateBetween(converteData(filter.getInitial()), converteData(filter.getEnd()));
        ModelAndView mv = new ModelAndView("absence_report");
-        mv.addObject("Ausencias", listaTodosTeste);
+       mv.addObject("Ausencias", listaTodosTeste);
        return mv;
     }
 
