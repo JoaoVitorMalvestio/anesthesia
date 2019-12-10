@@ -7,12 +7,12 @@
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th class="text-center col-md-1">Pacientes</th>
+                    <th class="text-center col-md-1">Médicos</th>
                     <th class="text-center col-md-1">Total</th>
                 </tr>
-                <tr>
-                    <th class="text-center col-md-1"></th>
-                    <th class="text-center col-md-1">2</th>
+                <tr th:each="doctor : ${doctors}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${doctor}">0</td>
                 </tr>
                 </thead>
             </table>
@@ -20,12 +20,25 @@
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th class="text-center col-md-1">Pacientes</th>
+                    <th class="text-center col-md-1">Total</th>
+                </tr>
+                <tr th:each="paciente : ${pacientes}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${paciente}"></td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr >
                     <th class="text-center col-md-1">Consultas</th>
                     <th class="text-center col-md-1">Total</th>
                 </tr>
-                <tr>
-                    <th class="text-center col-md-1"></th>
-                    <th class="text-center col-md-1">0</th>
+                <tr th:each="consult : ${consults}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${consults}"></td>
                 </tr>
                 </thead>
             </table>
@@ -36,23 +49,11 @@
                     <th class="text-center col-md-1">Processos</th>
                     <th class="text-center col-md-1">Total</th>
                 </tr>
-                <tr>
-                    <th class="text-center col-md-1"></th>
-                    <th class="text-center col-md-1">3</th>
+                <tr th:each="process : ${processos}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${process}"></td>
                 </tr>
-                </thead>
-            </table>
 
-            <table class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th class="text-center col-md-1">Exames</th>
-                    <th class="text-center col-md-1">       Total</th>
-                </tr>
-                <tr>
-                    <th class="text-center col-md-1"></th>
-                    <th class="text-center col-md-1">       8</th>
-                </tr>
                 </thead>
             </table>
 

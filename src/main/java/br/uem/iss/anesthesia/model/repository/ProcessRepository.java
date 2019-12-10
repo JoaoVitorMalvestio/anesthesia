@@ -31,4 +31,5 @@ public interface ProcessRepository extends CrudRepository<ProcessModel, Long> {
 
     Iterable<ProcessModel> findByInicialDateAfterAndInicialDateBeforeAndPatientEquals(LocalDate dtinicial, LocalDate dtfinal, PatientModel patientModel);
 
+    long count();
 }

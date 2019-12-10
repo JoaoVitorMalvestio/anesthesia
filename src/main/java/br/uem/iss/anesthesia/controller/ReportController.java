@@ -97,7 +97,15 @@ public class ReportController extends AbstractController {
 
     @GetMapping("/listagem-report")
     public AbstractModelAndView listagenReport() {
+        long sqlPacientes = patientRepository.count();
+        long sqlDoctor = doctorRepository.count();
+        long sqlConsultas = appointmentRepository.count();
+        long sqlProcess = processRepository.count();
         AbstractModelAndView mv = new AbstractModelAndView("new_report_listagem");
+        mv.addObject("pacientes",sqlPacientes);
+        mv.addObject("doctors", sqlDoctor);
+        mv.addObject("consults", sqlConsultas);
+        mv.addObject("processos", sqlProcess);
         return mv;
     }
 }
