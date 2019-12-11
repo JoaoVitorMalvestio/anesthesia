@@ -33,24 +33,7 @@
                 </form>
             </div>
         </div>
-        <table >
-            <thead>
-            <tr >
-                <th>Código</th>
-                <th>Médico</th>
-                <th>Paciente</th>
-                <th>Data Inicial</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="process : ${process}">
-                <td th:text="${process.id}"><span></span></td>
-                <td th:text="${process.doctor.getName()}"><span></span></td>
-                <td th:text="${process.patient.getName()}"><span></span></td>
-                <td th:text="${process.inicialDate}"><span></span></td>
-            </tr>
-            </tbody>
-        </table>
+
     </div>
 </div>
 </html>

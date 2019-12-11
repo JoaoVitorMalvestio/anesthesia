@@ -6,6 +6,7 @@ import br.uem.iss.anesthesia.model.entity.AppointmentModel;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.util.DateSupport;
 import br.uem.iss.anesthesia.view.AbstractModelAndView;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,10 +30,10 @@ public class AbsenceReportController extends AbstractController {
 
     @GetMapping
     public ModelAndView absenceRegistry(@ModelAttribute("filter") AppoinmentFilter filter) {
-        List<AppointmentModel> listaTodosTeste = appointmentRepository.findByDateBetween(converteData(filter.getInitial()), converteData(filter.getEnd()));
-       ModelAndView mv = new ModelAndView("absence_report");
-       mv.addObject("Ausencias", listaTodosTeste);
-       return mv;
+        List<AppointmentModel> listaTodos = appointmentRepository.findByDateBetween(converteData(filter.getInitial()), converteData(filter.getEnd()));
+        ModelAndView mv = new ModelAndView("absence_report");
+        mv.addObject("Ausencias", listaTodos);
+        return mv;
     }
 
     private LocalDateTime converteData(String data){

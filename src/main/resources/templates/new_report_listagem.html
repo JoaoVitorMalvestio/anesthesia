@@ -8,11 +8,11 @@
                 <thead>
                 <tr>
                     <th class="text-center col-md-1">Médicos</th>
-                    <th class="text-center col-md-1">Total</th>
+                    <th class="text-center col-md-1"> Total</th>
                 </tr>
                 <tr th:each="doctor : ${doctors}">
                     <td class="text-center col-md-1"></td>
-                    <td class="text-center col-md-1"  th:text="${doctor}">0</td>
+                    <td class="text-center col-md-1"  th:text="${doctor}"> 0</td>
                 </tr>
                 </thead>
             </table>
@@ -21,11 +21,11 @@
                 <thead>
                 <tr>
                     <th class="text-center col-md-1">Pacientes</th>
-                    <th class="text-center col-md-1">Total</th>
+                    <th class="text-center col-md-1"> Total</th>
                 </tr>
                 <tr th:each="paciente : ${pacientes}">
                     <td class="text-center col-md-1"></td>
-                    <td class="text-center col-md-1"  th:text="${paciente}"></td>
+                    <td class="text-center col-md-1"  th:text="${paciente}"> 0</td>
                 </tr>
                 </thead>
             </table>
@@ -47,11 +47,11 @@
                 <thead>
                 <tr>
                     <th class="text-center col-md-1">Processos</th>
-                    <th class="text-center col-md-1">Total</th>
+                    <th class="text-center col-md-1"> Total</th>
                 </tr>
                 <tr th:each="process : ${processos}">
                     <td class="text-center col-md-1"></td>
-                    <td class="text-center col-md-1" th:text="${process}"></td>
+                    <td class="text-center col-md-1" th:text="${process}"> 0</td>
                 </tr>
 
                 </thead>

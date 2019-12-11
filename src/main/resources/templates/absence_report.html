@@ -16,7 +16,7 @@
                     <tr th:each="ausencia: ${ausencias}">
                         <td class="text-center" th:text="${ausencia.id}">1</td>
                         <td class="text-center" th:text="${ausencia.date}">1</td>
-                        <td class="text-center" th:text="${ausencia.process}">1</td>
+                        <td class="text-center" th:text="${ausencia.process.patient.getName()}">1</td>
                     </tr>
                     <tr>
                         <td colspan="3">Nenhuma ausência encontrada</td>
