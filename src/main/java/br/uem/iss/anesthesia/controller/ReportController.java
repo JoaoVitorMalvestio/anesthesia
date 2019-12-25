@@ -7,7 +7,10 @@ import br.uem.iss.anesthesia.model.repository.DoctorRepository;
 import br.uem.iss.anesthesia.model.repository.PatientRepository;
 import br.uem.iss.anesthesia.model.repository.ProcessRepository;
 import br.uem.iss.anesthesia.util.DateSupport;
-import br.uem.iss.anesthesia.view.*;
+import br.uem.iss.anesthesia.view.AbstractModelAndView;
+import br.uem.iss.anesthesia.view.PatientRegistryView;
+import br.uem.iss.anesthesia.view.PatientReportFormView;
+import br.uem.iss.anesthesia.view.ProcessReportFormView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,14 +25,12 @@ public class ReportController extends AbstractController {
     private AppointmentRepository appointmentRepository;
     private DateSupport dateSupport;
 
-
     public ReportController(PatientRepository patientRepository, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository, DateSupport dateSupport, ProcessRepository processRepository) {
         this.patientRepository = patientRepository;
         this.doctorRepository = doctorRepository;
         this.processRepository = processRepository;
         this.appointmentRepository = appointmentRepository;
         this.dateSupport = dateSupport;
-        this.processRepository = processRepository;
     }
 
     @GetMapping
@@ -47,7 +48,6 @@ public class ReportController extends AbstractController {
         return new PatientReportFormView(doctorRepository.findAll());
     }
 
-    @PostMapping("/patient-report")
 
     @GetMapping("/process-report")
     public AbstractModelAndView formProcessReport() {
@@ -74,12 +74,19 @@ public class ReportController extends AbstractController {
         }else{
             process = processRepository.findByActiveTrue();
         }
-
         return new ProcessReportFormView(patientRepository.findAll(), request, process);
     }
-
-    @GetMapping("/absence-report")
-    public AbstractModelAndView formAbsenceReport() {
-        return new AbsenseReportFormView(new ProcessReportRequest(), null);
-    }
+    /*@PostMapping("/patient-report")
+    public ModelAndView patientReport(@ModelAttribute PatientReportRequest request) {
+        LocalDateTime initial = request.getInitial().atStartOfDay();
+        LocalDateTime end = request.getEnd().atTime(23, 59, 59);
+        List<AppointmentModel> appointments;
+        DoctorModel doctor = request.getDoctor();
+        if (doctor == null) {
+            appointments = appointmentRepository.findByDateBetween(initial, end);
+        } else {
+            appointments = appointmentRepository.findByDoctorAndDateBetween(initial, end);
+        }
+        return new PatientReportView(dateSupport.format(initial), dateSupport.format(end), doctor, appointments);
+    }*/
 }
