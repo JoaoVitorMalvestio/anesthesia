@@ -74,6 +74,7 @@ public class ReportController extends AbstractController {
         }else{
             process = processRepository.findByActiveTrue();
         }
+
         return new ProcessReportFormView(patientRepository.findAll(), request, process);
     }
 

@@ -4,9 +4,12 @@ import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.PatientModel;
 import br.uem.iss.anesthesia.model.entity.ProcessModel;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-
+@Repository
+@Transactional
 public interface ProcessRepository extends CrudRepository<ProcessModel, Long> {
 
     Iterable<ProcessModel> findByActiveTrue();
@@ -30,5 +33,8 @@ public interface ProcessRepository extends CrudRepository<ProcessModel, Long> {
     Iterable<ProcessModel> findByInicialDateAfterAndInicialDateBefore(LocalDate dtinicial, LocalDate dtfinal);
 
     Iterable<ProcessModel> findByInicialDateAfterAndInicialDateBeforeAndPatientEquals(LocalDate dtinicial, LocalDate dtfinal, PatientModel patientModel);
+
+    Iterable<ProcessModel> findByInicialDateBeforeAndInicialDateAfter(String calendarBefore, String calendarAfter);
+
 
 }
