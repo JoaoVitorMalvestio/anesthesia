@@ -16,4 +16,6 @@ public interface PatientRepository extends CrudRepository<PatientModel, Long> {
     Set<PatientModel> findByNameContainingAndActiveTrue(String name);
 
     Set<PatientModel> findByCpfContainingAndNameContainingAndActiveTrue(String cpf, String name);
+
+    long count();
 }
