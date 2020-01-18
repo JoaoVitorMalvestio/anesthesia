@@ -2,17 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Ajuda</title>
+    <title>Fale Conosco</title>
 </head>
 </html>
 <body>
 <h1>Como Podemos Ajudar?</h1>
+<h2>Deixe seu contato e sua dúvida que iremos te retornar.</h2>
 <form action="">
-    <input class="pesq" type="text" placeholder="Digite aqui sua dúvida">
+    <input class="pesq" type="text" placeholder="Nome"><br>
+
+    <input class="pesq" type="text" placeholder="Fone"><br>
+
+    <input class="pesq" type="text" placeholder="Email"><br>
+
+    <input class="opiniao" type="text" placeholder="Deixe sua Opinião"><br>
 </form>
 
+    <button class="btnSalvar" onClick="window.location.reload();">Enviar</button>
+
+
 <style>
-            .pesq{
+                .pesq{
                 width: 500px; 
                 height: 55px; 
                 float: center; 
@@ -30,6 +40,27 @@
                 }
                 h1{
                     color: #fff;
+                }
+                h2{
+                    color: #fff;
+                }
+
+                .opiniao{
+                width: 500px;
+                height: 200px;
+                float: center;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: #fff;
+                border: 2px solid #000;
+                border-radius: 4px;
+                text-indent: 25px;
+                }
+
+                .btnSalvar{
+                background-color: #fff;
+                border: 2px solid #000;
+                border-radius: 4px;
                 }
             </style>
 </body>
