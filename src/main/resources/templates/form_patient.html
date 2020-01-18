@@ -13,7 +13,9 @@
                     </div>
                 </nav>
             </div>
+
             <th:block th:include="message"></th:block>
+
             <form action="#" th:action="@{/patient}" th:object="${patient}" method="post">
                 <input id="id" th:field="*{id}" type="hidden">
                 <div class="row">
@@ -118,6 +120,7 @@
             </form>
         </div>
     </div>
+</div>
     <script th:src="@{/js/form_patient.js}"></script>
 </div>
 

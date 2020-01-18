@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <div class="container">
+        <div class="row">
+            <h2 class="center">Cadastro de Processos</h2>
+            <div class="row">
+                <nav>
+                    <div class="nav-wrapper blue darken-1">
+                        <div class="col s12">
+                            <a class="breadcrumb" th:href="@{/}">Home</a>
+                            <a class="breadcrumb">Cadastro de Processos</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="row">
+                <form th:action="@{/process}" method="get">
+                    <div class="input-field col s4">
+                        <select name="filtro_paciente" id="filtro_paciente">
+                            <option value="">Selecione um Paciente</option>
+                            <option th:each     ="patient : ${patients}"
+                                    th:selected ="${patient.id == (filtro_paciente != null ? filtro_paciente.id : null)}"
+                                    th:value    ="${patient.id}"
+                                    th:text     ="${patient.name}"></option>
+                        </select>
+                        <label for="filtro_paciente">Paciente</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <select name="filtro_medico" id="filtro_medico">
+                            <option value="">Selecione um Médico</option>
+                            <option th:each     ="doctor : ${doctors}"
+                                    th:selected="${doctor.id == (filtro_medico != null ? filtro_medico.id : null) }"
+                                    th:value    ="${doctor.id}"
+                                    th:text     ="${doctor.name}">
+                            </option>
+                        </select>
+                        <label for="filtro_medico">Médico</label>
+                    </div>
+                    <div class="col s2">
+                        <div class="row">
+                            <a onclick="limparcampos()" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Limpar Campos">
+                                <i class="material-icons">clear_all</i></a>
+                            <button type="submit" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Pesquisar"><i
+                                    class="material-icons">search</i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <table >
+                <thead>
+                <tr >
+                    <th>Código</th>
+                    <th>Médico</th>
+                    <th>Paciente</th>
+                    <th><a href="/process/new" class="btn-floating btn-small waves-effect waves-light blue tooltipped" data-tooltip="Adicionar"><i
+                            class="material-icons">add</i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="process : ${process}">
+                    <td th:text="${process.id}"><span></span></td>
+                    <td th:text="${process.doctor.getName()}"><span></span></td>
+                    <td th:text="${process.patient.getName()}"><span></span></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light blue tooltipped"
+                           th:href="${(#mvc.url('PC#editProcess').arg(0, process.id)).build()}" data-tooltip="Editar"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue delete tooltipped"
+                           th:data-url="${(#mvc.url('PC#deleteProcess').arg(0, process.id)).build()}" data-tooltip="Excluir"><i class="material-icons">delete</i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</html>
