@@ -13,6 +13,9 @@
                         </div>
                     </div>
                 </nav>
+                <div>
+                    <a th:href="@{/help}" target="_blank">Ajuda</a>
+                </div>
             </div>
             <div class="row">
                 <form method="GET" th:object="${filter}" action="/absence">
@@ -28,11 +31,12 @@
                         <button  type="submit"
                                  class="btn-floating btn-large waves-effect waves-light blue"><i
                                 class="material-icons">done</i></button>
-
                     </div>
                 </form>
             </div>
         </div>
+
+
 
     </div>
 </div>
