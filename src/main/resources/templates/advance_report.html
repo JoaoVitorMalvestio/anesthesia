@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <body onload="window.print()">
+    <div class="container">
+        <div class="panel-body">
+            <h1>Relatório de adiantamentos</h1>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">#</th>
+                    <th class="text-center col-md-1">Data</th>
+                    <th class="text-center col-md-1">Processo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="ausencia: ${ausencias}">
+                    <td class="text-center" th:text="${ausencia.id}">1</td>
+                    <td class="text-center" th:text="${ausencia.date}">1</td>
+                    <td class="text-center" th:text="${ausencia.process}">1</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Nenhuma adiantamento encontrado</td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+    </body>
+</div>
+</html>
