@@ -21,7 +21,7 @@
                         <select name="doctor" id="doctor">
                             <option value="">Selecione um Médico</option>
                             <option th:each     ="doctor : ${doctors}"
-                                     th:selected ="${doctor == process.doctor}"
+                                    th:selected ="${doctor == process.doctor}"
                                     th:value    ="${doctor.id}"
                                     th:text     ="${doctor.name}">
                             </option>
@@ -63,29 +63,29 @@
                 <h5>Exames:</h5>
                 <table id="table_exames">
                     <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome</th>
-                            <th>Tempo de Jejum</th>
-                            <th>Aprovado</th>
-                            <th>Ações</th>
-                        </tr>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Tempo de Jejum</th>
+                        <th>Aprovado</th>
+                        <th>Ações</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="processexam,index : *{procesexams}" th:id="${processexam.id}" th:data-index="${index.index+1}">
-                            <td><span th:text="${processexam.exams.getId()}"></span></td>
-                            <td th:text="${processexam.exams.getName()}"><span></span></td>
-                            <td th:text="${processexam.exams.getJejumTime()}"><span></span></td>
-                            <td>
-                                <p>
-                                    <label>
-                                        <input type="checkbox" th:checked="${processexam.approved}" class="filled-in approved_change" />
-                                        <span></span>
-                                    </label>
-                                </p>
-                            </td>
-                            <td class="acoes"><a class="waves-effect waves-light btn remover_exam" th:data-index="${index.index+1}" >Remover</a></td>
-                        </tr>
+                    <tr th:each="processexam,index : *{procesexams}" th:id="${processexam.id}" th:data-index="${index.index+1}">
+                        <td><span th:text="${processexam.exams.getId()}"></span></td>
+                        <td th:text="${processexam.exams.getName()}"><span></span></td>
+                        <td th:text="${processexam.exams.getJejumTime()}"><span></span></td>
+                        <td>
+                            <p>
+                                <label>
+                                    <input type="checkbox" th:checked="${processexam.approved}" class="filled-in approved_change" />
+                                    <span></span>
+                                </label>
+                            </p>
+                        </td>
+                        <td class="acoes"><a class="waves-effect waves-light btn remover_exam" th:data-index="${index.index+1}" >Remover</a></td>
+                    </tr>
                     </tbody>
                 </table>
                 <button class="waves-effect waves-light btn" type="button" onclick="clickBtnSalvar()">Salvar
