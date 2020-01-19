@@ -12,4 +12,6 @@ public class AbsenseReportFormView extends AbstractModelAndView {
         super("form_absense-report", "filter", processReportRequest);
         addObject("process", process);
     }
+
+
 }

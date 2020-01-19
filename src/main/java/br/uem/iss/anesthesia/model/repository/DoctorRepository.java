@@ -10,4 +10,5 @@ public interface DoctorRepository extends CrudRepository<DoctorModel, Long> {
     Iterable<DoctorModel> findByCrmContainingAndNameContainingAndActiveTrue(String crm, String name);
 
     Iterable<DoctorModel> findByCrmContainingAndNameContainingAndActiveFalse(String crm, String name);
+
 }

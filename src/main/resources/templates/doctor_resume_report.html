@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <body onload="window.print()">
+    <div class="container">
+        <div class="panel-body">
+            <h1>Resumo do Médico</h1>
+            <table class="table table-bordered table-striped">
+
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">#</th>
+                    <th class="text-center col-md-1">Data</th>
+                    <th class="text-center col-md-1">Processo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="resumo: ${resumo}">
+                    <td class="text-center" th:text="${resumo.id}">1</td>
+                    <td class="text-center" th:text="${resumo.date}">1</td>
+                    <td class="text-center" th:text="${resumo.process.patient.getName()}">1</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Nenhuma dado encontrada</td>
+                </tr>
+                </tbody>
+                <!--
+                <thead>
+                    <tr>
+                       <th class="text-center col-md-1">ID</th>
+                        <th class="text-center col-md-1">Nome</th>
+                        <th class="text-center col-md-1">CRM</th>
+                        <th class="text-center col-md-1">Data</th>
+                        <th class="text-center col-md-1">Consultas</th>
+                        <th class="text-center col-md-1">Processos</th>
+                        <th class="text-center col-md-1">Procedimentos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="resumo: ${resumo}">
+                        <td class="text-center" th:text="${resumo.id}"></td>
+                        <td class="text-center" th:text="${resumo.name}"></td>
+                        <td class="text-center" th:text="${resumo.crm}"></td>
+                        <td class="text-center" th:text="${resumo.date}"></td>
+                        <td class="text-center" th:text="${resumo.consult}"></td>
+                        <td class="text-center" th:text="${resumo.process}"></td>
+                        <td class="text-center" th:text="${resumo.medicalProcedure}"></td>
+
+                    </tr>
+                </tbody>-->
+
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+    </body>
+</div>
+</html>

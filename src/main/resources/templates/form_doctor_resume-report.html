@@ -2,7 +2,7 @@
 <div th:fragment="corpo">
     <div class="container">
         <div class="row">
-            <h2 class="center">Resumo do Médico</h2>
+            <h2 class="center">Relatório de Ausências</h2>
             <div class="row">
                 <nav>
                     <div class="nav-wrapper blue darken-1">
@@ -15,12 +15,12 @@
                 </nav>
             </div>
             <div class="row">
-                <form method="post" th:object="${filter}">
-                    <div class="input-field col s7">
-                        <select th:field="*{doctor}">
-                            <option th:value="${null}">Nenhum</option>
+                <form method="GET" th:object="${filter}" action="/doctorResume">
+                    <div class="input-field col s12">
+                        <select th:field="*{doctors}" multiple>
+                            <option value="" disabled>Selecione os exames</option>
                             <option th:each="doctor : ${doctors}" th:value="${{doctor}}"
-                                    th:text="${doctor.name}">
+                                    th:text="${doctor}">
                             </option>
                         </select>
                     </div>
@@ -33,14 +33,19 @@
                         <label for="end">Data Final</label>
                     </div>
                     <div class="col s1">
-                        <button target="_blank" type="submit"
-                                class="btn-floating btn-large waves-effect waves-light blue"><i
+                        <button  type="submit"
+                                 class="btn-floating btn-large waves-effect waves-light blue"><i
                                 class="material-icons">done</i></button>
                     </div>
+
                 </form>
             </div>
-            <th:block th:include="message"></th:block>
         </div>
+
+
+
+
+
     </div>
 </div>
 </html>

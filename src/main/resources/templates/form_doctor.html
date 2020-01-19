@@ -9,12 +9,14 @@
                         <div class="col s12">
                             <a class="breadcrumb" th:href="@{/}">Home</a>
                             <a class="breadcrumb" th:href="@{/doctor}">Cadastro de Médicos</a>
+                            <!--/*@thymesVar id="metodo" type=""*/-->
                             <a class="breadcrumb" th:text="${metodo} + Médicos"></a>
                         </div>
                     </div>
                 </nav>
             </div>
             <!--<th:block th:include="message"></th:block>-->
+            <!--/*@thymesVar id="doctor" type=""*/-->
             <form action="#" th:action="@{/doctor}" th:object="${doctor}" method="POST" id="form_doctor">
                 <input id="id" th:field="*{id}" type="hidden">
                 <div class="row">
