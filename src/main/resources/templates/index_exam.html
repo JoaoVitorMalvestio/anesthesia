@@ -32,6 +32,8 @@
                                 <i class="material-icons">clear_all</i></a>
                             <button type="submit" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Pesquisar"><i
                                     class="material-icons">search</i></button>
+                            <button title="Socorro" type=" "data-target="modal1"  class="btn-floating btn-large waves-effect waves-light spinner-green tooltipped modal-trigger" data-tooltip="Ajuda"><i
+                                    class="material-icons">help</i></button>
                         </div>
                     </div>
                 </form>
@@ -47,23 +49,147 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="exam : ${exams}">
-                        <td><span th:text="${exam.id}"></span></td>
-                        <td><span th:text="${exam.name}"></span></td>
-                        <td>
-                            <a class="btn-floating btn-small waves-effect waves-light blue delete"
-                               th:data-url="${(#mvc.url('EC#deleteExam').arg(0, exam.id)).build()}"><i
-                                    class="material-icons">delete</i></a>
-                            <a class="btn-floating btn-small waves-effect waves-light blue"
-                               th:href="${(#mvc.url('EC#editExam').arg(0, exam.id)).build()}"><i
-                                    class="material-icons">edit</i></a>
-                            <a class="btn-floating btn-small waves-effect waves-light blue"
-                               th:href="${'/report/exam-registry/' + exam.id}"><i
-                                    class="material-icons">local_printshop</i></a>
-                        </td>
-                    </tr>
+                <tr th:each="exam : ${exams}">
+                    <td><span th:text="${exam.id}"></span></td>
+                    <td><span th:text="${exam.name}"></span></td>
+                    <td>
+                        <a class="btn-floating btn-small waves-effect waves-light blue delete"
+                           th:data-url="${(#mvc.url('EC#deleteExam').arg(0, exam.id)).build()}"><i
+                                class="material-icons">delete</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue"
+                           th:href="${(#mvc.url('EC#editExam').arg(0, exam.id)).build()}"><i
+                                class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-small waves-effect waves-light blue tooltipped"
+                           th:data-tooltip="${'Imprimir o Exame ' + exam.name}" target="_blank"
+                           th:href="${'/report/exam-registry/' + exam.id}"><i
+                                class="material-icons">local_printshop</i></a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content center">
+                    <h4 class="center">Ajuda do Cadastro de Exames</h4>
+                    </br>
+                    <p>Aqui vamos encontrar várias formas de te ajudar:</p>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Cadastrando Exames</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Editando Exames</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal4">Consultando Exames</a>
+                    </br>
+                    </br>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal5">Removendo Exames</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal6">Imprimindo Exames</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal7">Limpar campos de Pesquisa</a>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Cadastrando Exames</h4>
+                    </br>
+                    <h5 class="blue-text">Para cadastrar um novo exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">add</i></b></p>
+                    <p class="grey-text">*Será aberto a página de Cadastro</p>
+                    <p class="blue-text">&rarr;Preencha o campo Nome com o nome do Exame</p>
+                    <p class="grey-text">*Este nome ficará disponivel para que seja buscado posteriormente no sistema</p>
+                    <p class="blue-text">&rarr;Clique no campo Descrição e preencha com dados que discrimine o exame</p>
+                    <p class="blue-text">&rarr;Clique no campo Tempo de Jejum e preencha com um valor inteiro o tempo em horas de jejum para ser realizado o exame</p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para cadastrar o exame</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não cadastrar o exame, a página retornará para a lista de exames</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Editando Exames</h4>
+                    </br>
+                    <h5 class="blue-text">Para editar um exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha do exame que quer editar, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">edit</i></b></p>
+                    <p class="grey-text">*Será aberto a página do exame cadastrado</p>
+                    <p class="blue-text">&rarr;Clique no(s) campo(s) do Exame que deseja editar</p>
+                    <p class="grey-text">*Faça as alterações necessárias</p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para editar o exame</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não editar o exame, a página retornará para a lista de exames</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Consultando Exames</h4>
+                    </br>
+                    <h5 class="blue-text">Para Consultar um exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique no campo Nome e preencha o nome, ou parte, para consultar o nome do Exame</p>
+                    <p class="blue-text">&rarr;Escolha o campo Ativo, para Sim ou Não</p>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">search</i></b> para pesquisar</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Removendo Exames</h4>
+                    </br>
+                    <h5 class="blue-text">Para Remover um exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha do exame que quer remover, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">delete</i></b></p>
+                    <p class="grey-text">*Será aberto uma janela</p>
+                    <p class="blue-text">&rarr;Clique no botão OK para remover o exame</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Cancelar para não remover o exame, a página retornará para a lista de exames</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+
+            <div id="modal6" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Imprimindo Exame</h4>
+                    </br>
+                    <h5 class="blue-text">Para Imprimir um exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha do exame que quer imprimir, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">local_printshop</i></b></p>
+                    <p class="grey-text">*Será aberto uma janela de impressão do seu sistema</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal7" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Limpar Campo de Pesquisa</h4>
+                    </br>
+                    <h5 class="blue-text">Para Limpar o campo de pesquisa de um exame siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha de Pesquisa, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">clear_all</i></b></p>
+                    <p class="grey-text">*Será limpo o campo nome e retornará a Sim o campo de Ativo</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

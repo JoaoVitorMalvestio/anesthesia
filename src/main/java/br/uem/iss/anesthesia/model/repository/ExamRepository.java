@@ -1,5 +1,6 @@
 package br.uem.iss.anesthesia.model.repository;
 
+import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.ExamModel;
 //import br.uem.iss.anesthesia.model.entity.MedicineModel;
 //import br.uem.iss.anesthesia.model.entity.PatientModel;

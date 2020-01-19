@@ -2966,7 +2966,7 @@ ul.staggered-list li {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 10px 0;
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(51, 51, 51, 0.08);
 }
@@ -5112,7 +5112,7 @@ small {
 @media only screen and (max-width: 600px) {
     #toast-container {
         min-width: 100%;
-        bottom: 0%;
+        bottom: 0;
     }
 }
 
@@ -5320,8 +5320,8 @@ small {
     border-radius: 0 0 50% 50%;
     background-color: #323232;
     z-index: -1;
-    -webkit-transform-origin: 50% 0%;
-    transform-origin: 50% 0%;
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
     visibility: hidden;
 }
 
@@ -6243,7 +6243,7 @@ body.keyboard-focused .dropdown-content li:focus {
     left: 0;
     width: 100%;
     text-align: center;
-    padding: 0% 15%;
+    padding: 0 15%;
     height: 50px;
     z-index: 1000;
     -webkit-font-smoothing: antialiased;
@@ -6703,8 +6703,8 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
     transition: color .2s ease-out, -webkit-transform .2s ease-out;
     transition: transform .2s ease-out, color .2s ease-out;
     transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
-    -webkit-transform-origin: 0% 100%;
-    transform-origin: 0% 100%;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
     text-align: initial;
     -webkit-transform: translateY(12px);
     transform: translateY(12px);
@@ -7145,7 +7145,7 @@ textarea.materialize-textarea {
     width: 20px;
     background-color: transparent;
     border: 2px solid #5a5a5a;
-    top: 0px;
+    top: 0;
     z-index: 0;
 }
 
@@ -7273,8 +7273,8 @@ textarea.materialize-textarea {
 
 .switch label .lever:after {
     background-color: #F1F1F1;
-    -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
 input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before,
@@ -8536,8 +8536,8 @@ input[type=range]::-ms-thumb {
     perspective: 500px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
+    -webkit-transform-origin: 0 50%;
+    transform-origin: 0 50%;
 }
 
 .carousel.carousel-slider {

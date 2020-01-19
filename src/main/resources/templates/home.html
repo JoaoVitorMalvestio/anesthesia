@@ -2,15 +2,58 @@
 <div th:fragment="corpo">
     <div class="container">
         <div class="row">
+            <div class="col s12 m6">
+                <div class="card blue darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Pacientes</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/patient}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card green darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Médicos</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/doctor}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col s12 m6">
                 <div class="card red darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Exames</span>
+                        <span class="card-title">Exames*</span>
                     </div>
                     <div class="card-action">
                         <a th:href="@{/exam}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card purple darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Processos</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/process}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card brown darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Procedimentos Médicos</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/medicalProcedure}">Clique aqui</a>
                     </div>
                 </div>
             </div>
@@ -19,7 +62,7 @@
             <div class="col s12 m6">
                 <div class="card blue-grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Medicamentos</span>
+                        <span class="card-title">Medicamentos*</span>
                     </div>
                     <div class="card-action">
                         <a th:href="@{/medicine}">Clique aqui</a>
@@ -31,7 +74,19 @@
             <div class="col s12 m6">
                 <div class="card grey darken-1">
                     <div class="card-content white-text">
-                        <span class="card-title">Consultas</span>
+                        <span class="card-title">Relatórios</span>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="@{/report}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Consultas*</span>
                     </div>
                     <div class="card-action">
                         <a th:href="@{/consult}">Clique aqui</a>
