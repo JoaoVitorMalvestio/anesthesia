@@ -13,6 +13,26 @@ public class AppointmentModel extends DefaultModel {
     private ProcessModel process;
     private LocalDateTime date;
     private boolean active;
+    @ManyToOne
+    private PatientModel patient;
+    @ManyToOne
+    private DoctorModel doctor;
+
+    public PatientModel getPatient() {
+        return patient;
+    }
+
+    public void setPatient(PatientModel patient) {
+        this.patient = patient;
+    }
+
+    public DoctorModel getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorModel doctor) {
+        this.doctor = doctor;
+    }
 
     public LocalDateTime getDate() {
         return date;

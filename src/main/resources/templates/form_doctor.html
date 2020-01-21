@@ -20,11 +20,11 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="name" th:field="*{name}" type="text" required>
-                        <label for="name">Nome</label>
+                        <label for="name">Nome*</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="crm" th:field="*{crm}" type="text" required>
-                        <label for="crm">CRM</label>
+                        <label for="crm">CRM*</label>
                     </div>
                 </div>
                 <div class="row">
@@ -42,6 +42,7 @@
                     </div>
                 </div>
                 <span class="erro_atendimento" style="color: #F44336" hidden>Por favor, preencha um dia de atendimento</span>
+                *
                 <div class="row" id="dias_atendimento">
                     <div class="col s12 m3">
                         <div class="card">
@@ -188,13 +189,20 @@
                                     </label>
                                 </p>
                             </div>
+
                         </div>
+
                     </div>
+
+
                 </div>
+
                 <button class="waves-effect waves-light btn" type="button" onclick="validaform()">Salvar
                     <i class="material-icons right">send</i>
                 </button>
                 <a href="/doctor" class="waves-effect waves-light btn">Voltar</a>
+
+               <p>(*) Campo obrigatório</p>
             </form>
         </div>
     </div>
