@@ -82,6 +82,7 @@ public class ReportController extends AbstractController {
         return new ProcessReportFormView(patientRepository.findAll(), request, process);
     }
 
+    
     @GetMapping("/absence-report")
     public AbstractModelAndView formAbsenceReport() {
         return new AbsenseReportFormView(processRepository.findAll());
