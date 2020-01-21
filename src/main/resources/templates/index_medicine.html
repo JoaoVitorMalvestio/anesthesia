@@ -2,13 +2,13 @@
 <div th:fragment="corpo">
     <div class="container">
         <div class="row">
-            <h2 class="center">Cadastro de Antecedentes</h2>
+            <h2 class="center">Cadastro de Medicamento</h2>
             <div class="row">
                 <nav>
                     <div class="nav-wrapper blue darken-1">
                         <div class="col s12">
                             <a class="breadcrumb" th:href="@{/}">Home</a>
-                            <a class="breadcrumb">Antecedentes</a>
+                            <a class="breadcrumb">Medicamento</a>
                         </div>
                     </div>
                 </nav>
@@ -20,7 +20,7 @@
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
-                        <th><a href="/background/new" class="btn-floating btn-small waves-effect waves-light blue"><i
+                        <th><a href="/medicine/new" class="btn-floating btn-small waves-effect waves-light blue"><i
                                 class="material-icons">add</i></a>
                         </th>
                         <th>
@@ -30,11 +30,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="background : ${backgrounds}">
-                        <td><span th:text="${background.id}"></span></td>
-                        <td><span th:text="${background.name}"></span></td>
+                    <tr th:each="medicine : ${medicines}">
+                        <td><span th:text="${medicine.id}"></span></td>
+                        <td><span th:text="${medicine.name}"></span></td>
                         <td><a class="btn-floating btn-small waves-effect waves-light blue"
-                               th:href="${(#mvc.url('BC#editBackground').arg(0, background.id)).build()}"><i
+                               th:href="${(#mvc.url('MC#editMedicine').arg(0, medicine.id)).build()}"><i
                                 class="material-icons">edit</i></a>
                         </td>
                     </tr>
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    <script th:src="@{/js/index_background.js}"></script>
+    <script th:src="@{/js/index_medicine.js}"></script>
 </div>
 
 </html>

@@ -15,10 +15,9 @@ public class SaveUserBusiness extends SaveModelBusiness<UserModel> {
     private NameNotNumbersValidator nameNotNumbersValidator;
 
     @Autowired
-    public SaveUserBusiness(MedicalProcedureRepository repository, NameNotNullValidator nameNotNullValidator, NameNotNumbersValidator nameNotNumbersValidator) {
+    public SaveUserBusiness(MedicalProcedureRepository repository, NameNotNullValidator nameNotNullValidator) {
         super(repository);
         this.nameNotNullValidator = nameNotNullValidator;
-        this.nameNotNumbersValidator = nameNotNumbersValidator;
     }
 
     @Override

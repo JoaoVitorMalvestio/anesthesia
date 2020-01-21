@@ -1,12 +1,13 @@
-package br.uem.iss.anesthesia.controller.binder;
+package br.uem.iss.anesthesia.controller.request;
 
+import br.uem.iss.anesthesia.model.entity.DoctorModel;
 import br.uem.iss.anesthesia.model.entity.PatientModel;
 
 import java.time.LocalDate;
 
-public class ProcessReportRequest {
+public class DoctorReportRequest {
 
-    private PatientModel patient;
+    private DoctorModel doctor;
     private LocalDate initial;
     private LocalDate end;
 
@@ -26,18 +27,18 @@ public class ProcessReportRequest {
         this.end = end;
     }
 
-    public PatientModel getPatient() {
-        return patient;
+    public DoctorModel getDoctor() {
+        return doctor;
     }
 
-    public void setPatient(PatientModel patient) {
-        this.patient = patient;
+    public void setDoctor(DoctorModel doctor) {
+        this.doctor = doctor;
     }
 
     @Override
     public String toString() {
-        return "ProcessReportRequest{" +
-                "patient=" + patient +
+        return "DoctorReportRequest{" +
+                "doctor=" + doctor +
                 ", initial=" + initial +
                 ", end=" + end +
                 '}';

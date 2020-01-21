@@ -4,7 +4,7 @@ import br.uem.iss.anesthesia.model.entity.DoctorModel;
 
 import java.time.LocalDate;
 
-public class PatientReportRequest {
+public class DoctorResumeReportRequest {
 
     private DoctorModel doctor;
     private LocalDate initial;

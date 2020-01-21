@@ -1,9 +1,9 @@
 /********************************************
-   AUTHOR:  			Erwin Aligam 
+   AUTHOR:  			Erwin Aligam
    WEBSITE:   			http://www.styleshout.com/
    TEMPLATE NAME: 	Techmania 1.0
 	TEMPLATE CODE: 	S-0003
-    VERSION:         1.1          	
+    VERSION:         1.1
  *******************************************/
 	/********************************************
    HTML ELEMENTS
@@ -83,11 +83,11 @@ img {
 }
 
 img.float-right {
-	margin: 5px 0px 10px 10px;
+	margin: 5px 0 10px 10px;
 }
 
 img.float-left {
-	margin: 5px 10px 10px 0px;
+	margin: 5px 10px 10px 0;
 }
 
 code {
@@ -226,7 +226,7 @@ input.submitbutton {
 }
 
 /*****************************
-      LAYOUT 
+      LAYOUT
 ******************************/
 #wrap {
 	margin: 0 auto;
@@ -296,7 +296,7 @@ input.submitbutton {
 
 #header-tabs ul {
 	margin: 0;
-	padding: 2px 0px 0px 0px;
+	padding: 2px 0 0 0;
 	list-style: none;
 }
 
@@ -333,7 +333,7 @@ input.submitbutton {
 }
 
 #header-tabs a:hover {
-	background-position: 0% -42px;
+	background-position: 0 -42px;
 }
 
 #header-tabs a:hover span {
@@ -341,7 +341,7 @@ input.submitbutton {
 }
 
 #header-tabs #current a {
-	background-position: 0% -42px;
+	background-position: 0 -42px;
 }
 
 #header-tabs #current a span {
@@ -375,8 +375,8 @@ input.submitbutton {
 }
 
 #sidebar h1 {
-	padding: 8px 0px 3px 25px;
-	background: url(square_arrow.gif) no-repeat 0% .7em;
+	padding: 8px 0 3px 25px;
+	background: url(square_arrow.gif) no-repeat 0 .7em;
 	text-transform: none;
 	color: #339900;
 }

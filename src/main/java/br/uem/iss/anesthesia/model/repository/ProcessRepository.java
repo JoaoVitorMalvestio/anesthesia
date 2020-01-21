@@ -36,6 +36,5 @@ public interface ProcessRepository extends CrudRepository<ProcessModel, Long> {
 
     Iterable<ProcessModel> findByInicialDateBeforeAndInicialDateAfter(String calendarBefore, String calendarAfter);
 
-
     long count();
 }
