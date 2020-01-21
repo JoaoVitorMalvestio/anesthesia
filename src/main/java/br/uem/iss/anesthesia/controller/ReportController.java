@@ -73,8 +73,6 @@ public class ReportController extends AbstractController {
         return new DoctorResumeReportFormView(processRepository.findAll());
     }
 
-    @PostMapping("/patient-report")
-
     @GetMapping("/process-report")
     public AbstractModelAndView formProcessReport() {
         return new ProcessReportFormView(patientRepository.findAll(), new ProcessReportRequest(), null);
@@ -107,10 +105,11 @@ public class ReportController extends AbstractController {
     public AbstractModelAndView formAbsenceReport() {
         return new AbsenseReportFormView(processRepository.findAll());
     }
-        return new AbsenseReportFormView(new ProcessReportRequest(), null);
+
+    @GetMapping("/advanced-report")
+    public AbstractModelAndView formAdvancedReport(){
+        return new AdvancedReportFormView(processRepository.findAll());
     }
-
-
 
   /*  @getMapping("/crud-report")
     public AbstractModelAndView formRegisterReport(){
@@ -144,23 +143,23 @@ public class ReportController extends AbstractController {
         return mv;
     }
     
-        @GetMapping("/doctor_resume2-report/{id}")
-        public AbstractModelAndView doctorResumeReport(@PathVariable Long id) {
-            String sqlDoctorName = doctorRepository.findById(id).get().getName();
-            String sqlDoctorCRM = doctorRepository.findById(id).get().getCrm();
-            long sqlConsults = appointmentRepository.count();
-            long sqlMedicalProcedure = medicalProcedureRepository.count();
-            long sqlProcess = processRepository.count();
-            long sqlPatient = patientRepository.count();
-            long sqlExam = examRepository.count();
-            AbstractModelAndView mv = new AbstractModelAndView("new_report_doctor_resume");
-            mv.addObject("doctorName", sqlDoctorName);
-            mv.addObject("doctorCRM", sqlDoctorCRM);
-            mv.addObject("consults", sqlConsults);
-            mv.addObject("medicalProcedure", sqlMedicalProcedure);
-            mv.addObject("process", sqlProcess);
-            mv.addObject("patient",sqlPatient);
-            mv.addObject("exam", sqlExam);
-            return mv;
+    @GetMapping("/doctor_resume2-report/{id}")
+    public AbstractModelAndView doctorResumeReport(@PathVariable Long id) {
+        String sqlDoctorName = doctorRepository.findById(id).get().getName();
+        String sqlDoctorCRM = doctorRepository.findById(id).get().getCrm();
+        long sqlConsults = appointmentRepository.count();
+        long sqlMedicalProcedure = medicalProcedureRepository.count();
+        long sqlProcess = processRepository.count();
+        long sqlPatient = patientRepository.count();
+        long sqlExam = examRepository.count();
+        AbstractModelAndView mv = new AbstractModelAndView("new_report_doctor_resume");
+        mv.addObject("doctorName", sqlDoctorName);
+        mv.addObject("doctorCRM", sqlDoctorCRM);
+        mv.addObject("consults", sqlConsults);
+        mv.addObject("medicalProcedure", sqlMedicalProcedure);
+        mv.addObject("process", sqlProcess);
+        mv.addObject("patient",sqlPatient);
+        mv.addObject("exam", sqlExam);
+        return mv;
     }
 }
