@@ -19,7 +19,7 @@
                     <div class="input-field col s7">
                         <select th:field="*{doctor}">
                             <option th:value="${null}">Nenhum</option>
-                            <option th:each="doctor : ${doctors}" th:value="${{doctor}}"
+                            <option th:each="doctor : ${doctors}" th:value="${doctor.id}"
                                     th:text="${doctor.name}">
                             </option>
                         </select>
@@ -49,8 +49,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="consult : ${consult}">
-                    <td th:text="${consult.patient.getName()}"><span></span></td>
+                <tr th:each="consult : ${consults}">
+                    <td th:text="${consult.patient}"><span></span></td>
                     <td th:text="${consult.date}"><span></span></td>
                     <td th:text="${consult.process.medicalProcedure.getName()}"><span></span></td>
                 </tr>
