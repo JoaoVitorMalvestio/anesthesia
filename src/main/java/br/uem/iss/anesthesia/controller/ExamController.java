@@ -39,6 +39,7 @@ public class ExamController {
 
     @GetMapping("/new")
     public ModelAndView newExam() {
+
         return viewWithoutMessage(new ExamModel());
     }
 
@@ -120,10 +121,11 @@ public class ExamController {
         return new ExamIndexView(examRepository.findByActiveTrue(), null,true);
     }
     private ExamFormView viewWithoutMessage(ExamModel exam) {
+
         return viewWithMessage(exam, null);
     }
     private ExamFormView viewWithMessage(ExamModel exam, String message) {
-        return new ExamFormView(exam);
+        return new ExamFormView(exam, message);
     }
 
 

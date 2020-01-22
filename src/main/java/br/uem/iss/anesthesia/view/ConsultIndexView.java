@@ -5,7 +5,7 @@ import br.uem.iss.anesthesia.model.entity.AppointmentModel;
 public class ConsultIndexView extends AbstractModelAndView {
 
     public ConsultIndexView(Iterable<AppointmentModel> consults, String number, String codigo, String nome_paciente, String nome_medico) {
-        super("index_consult", "consult", consults);
+        super("index_consult", "consults", consults);
         this.addObject("filtro_number", number);
         this.addObject("filtro_ativo", codigo);
         this.addObject("nome_paciente", nome_paciente);

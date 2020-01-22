@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <select name="process" id="process">
-                            <option value="">Selecione um Procedimento</option>
+                            <option value="">Selecione um Processo de Procedimento</option>
                             <option th:each     ="medicalprocedure : ${medicalprocedures}"
                                     th:selected ="${process == process}"
                                     th:value    ="${{medicalprocedure}}"

@@ -35,6 +35,7 @@ public class MedicineController {
 
     @GetMapping("/new")
     public MedicineFormView newMedicine() {
+
         return viewWithoutMessage(new MedicineModel());
     }
 
@@ -54,6 +55,7 @@ public class MedicineController {
     }
 
     private MedicineFormView viewWithoutMessage(MedicineModel medicine) {
+
         return viewWithMessage(medicine, null);
     }
 

@@ -98,6 +98,11 @@ public class ReportController extends AbstractController {
         return new ExamRegistryView(examRepository.findById(id).get());
     }
 
+    @GetMapping("/consult-registry/{id}")
+    public ModelAndView consultRegistry(@PathVariable Long id) {
+        return new ConsultRegistryView(appointmentRepository.findById(id).get());
+    }
+
 
     @GetMapping("/doctor_resume-report")
     public DoctorResumeReportFormView formDoctorResumeReport() {

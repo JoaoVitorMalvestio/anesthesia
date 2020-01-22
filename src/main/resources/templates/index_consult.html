@@ -18,21 +18,40 @@
                 </nav>
             </div>
             <div class="row">
-                <form method="get">
+                <form th:action="@{/consult}" method="get">
+                    <div class="input-field col s1">
+                        <input id="filtro_number" name="filtro_number" type="text" th:value="${filtro_number}">
+                        <label for="filtro_number">Código</label>
+                    </div>
                     <div class="input-field col s3">
-                        <input id="codigo" name="codigo" type="text">
-                        <label for="codigo">Código</label>
+                        <input id="filtro_nome_medico" name="filtro_nome_medico" type="text" th:value="${filtro_nome_medico}">
+                        <label for="filtro_nome_medico">Nome do Médico</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input id="nome_paciente" name="nome_paciente" type="text" th:value="${nome_paciente}">
+                        <label for="nome_paciente">Nome do Paciente</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <select id="filtro_ativo" name="filtro_ativo" th:value="${filtro_ativo}">
+                            <option th:value="true" th:text="Sim" th:selected="${filtro_ativo == true}"></option>
+                            <option th:value="false" th:text="Não" th:selected="${filtro_ativo == false}"></option>
+                        </select>
+                        <label for="filtro_ativo">Ativo</label>
                     </div>
 
-                    <div class="col s1">
+                    <div class="col s3">
                         <div class="row">
-                            <div class="col s6">
-                                <a href="/consult" class="btn-floating btn-large waves-effect waves-light blue"><i
-                                        class="material-icons">clear_all</i></a>
+                            <div class="col s4">
+                                <a href="/consult" class="btn-floating btn-large waves-effect waves-light blue data-tooltip="Limpar"">
+                                    <i class="material-icons">clear_all</i></a>
                             </div>
-                            <div class="col s6">
-                                <button type="submit" class="btn-floating btn-large waves-effect waves-light blue"><i
-                                        class="material-icons">done</i></button>
+                            <div class="col s4">
+                                <button type="submit" class="btn-floating btn-large waves-effect waves-light blue" data-tooltip="Pesquisar"><i
+                                        class="material-icons">search</i></button>
+                            </div>
+                            <div class="col s4">
+                                <button type=""       class="btn-floating btn-large waves-effect waves-light spinner-green tooltipped modal-trigger" data-tooltip="Ajuda"  title="Socorro"  data-target="modal1"><i
+                                        class="material-icons">help</i></button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +70,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="consult : ${consult}">
+                <tr th:each="consult : ${consults}">
                     <td><span th:text="${consult.id}"></span></td>
                     <td><span th:text="${consult.getProcess().getDoctor().getName()}"></span></td>
                     <td><span th:text="${consult.getProcess().getPatient().getName()}"></span></td>
@@ -63,7 +82,8 @@
                         <a class="btn-floating btn-small waves-effect waves-light blue"
                            th:href="${(#mvc.url('CC#editConsult').arg(0, consult.id)).build()}"><i
                                 class="material-icons">edit</i></a>
-                        <a class="btn-floating btn-small waves-effect waves-light blue"
+                        <a class="btn-floating btn-small waves-effect waves-light blue tooltipped"
+                           th:data-tooltip="${'Imprimir a Consulta de ' + consult.getProcess().getPatient().getName()}" target="_blank"
                            th:href="${'/report/consult-registry/' + consult.id}"><i
                                 class="material-icons">local_printshop</i></a>
                     </td>
@@ -71,6 +91,128 @@
                 </tbody>
             </table>
             <!--<div id='calendar'></div>-->
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content center">
+                    <h4 class="center">Ajuda do Cadastro de Consultas</h4>
+                    </br>
+                    <p>Aqui vamos encontrar várias formas de te ajudar:</p>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Cadastrando Consultas</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Editando Consultas</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal4">Consultando Consultas</a>
+                    </br>
+                    </br>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal5">Removendo Consultas</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal6">Imprimindo Consultas</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal7">Limpar campos de Pesquisa</a>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Cadastrando Consultas</h4>
+                    </br>
+                    <h5 class="blue-text">Para cadastrar uma nova Consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue">
+                        <i class="material-icons ">add</i></b></p>
+                    <p class="grey-text">*Será aberto a página de Cadastro</p>
+                    <p class="blue-text">&rarr;Clique e selecione uma Data de Consulta</p>
+                    <p class="blue-text">&rarr;Selecione uma Opção de Processos de Procedimento</p>
+                    <p class="blue-text">&rarr;Selecione um horário</p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para cadastrar a Consulta</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não cadastrar a Consulta, a página retornará para a lista de consultas</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Editando Consultas</h4>
+                    </br>
+                    <h5 class="blue-text">Para editar uma consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha da consulta marcada que quer editar, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">edit</i></b></p>
+                    <p class="grey-text">*Será aberto a página da Consulta cadastrada</p>
+                    <p class="blue-text">&rarr;Clique no(s) campo(s) da Consulta que deseja editar</p>
+                    <p class="grey-text">*Faça as alterações necessárias</p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para editar a Consulta</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não editar a Consulta, a página retornará para a lista de consultas</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Consultando Consultas</h4>
+                    </br>
+                    <h5 class="blue-text">Para Consultar uma consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique e preencha em algum ou mais campos de filtro para consultar a Consulta</p>
+                    <p class="blue-text">&rarr;Escolha o campo Ativo, para Sim ou Não</p>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">search</i></b> para pesquisar</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Removendo Consultas</h4>
+                    </br>
+                    <h5 class="blue-text">Para Remover uma consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha da consulta que quer remover, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">delete</i></b></p>
+                    <p class="grey-text">*Será aberto uma janela</p>
+                    <p class="blue-text">&rarr;Clique no botão OK para remover a consulta</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Cancelar para não remover a consulta, a página retornará para a lista de consultas</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+
+            <div id="modal6" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Imprimindo Consultas</h4>
+                    </br>
+                    <h5 class="blue-text">Para Imprimir uma consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha da consulta que quer imprimir, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">local_printshop</i></b></p>
+                    <p class="grey-text">*Será aberto uma janela de impressão do seu sistema</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal7" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Limpar Campo de Pesquisa</h4>
+                    </br>
+                    <h5 class="blue-text">Para Limpar o campo de pesquisa de uma Consulta siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha de Pesquisa, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">clear_all</i></b></p>
+                    <p class="grey-text">*Será limpo os campos de pesquisa e retornará a Sim o campo de Ativo</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

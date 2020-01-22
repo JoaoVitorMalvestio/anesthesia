@@ -13,7 +13,7 @@
                     </div>
                 </nav>
             </div>
-            <!--<th:block th:include="message"></th:block>-->
+            <th:block th:include="message"></th:block>
             <form action="#" th:action="@{/exam}" th:object="${exam}" method="post">
                 <input id="id" th:field="*{id}" type="hidden">
                 <div class="row">
