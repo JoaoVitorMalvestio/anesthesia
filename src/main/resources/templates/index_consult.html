@@ -42,7 +42,9 @@
                 <thead>
                 <tr>
                     <th>Código</th>
-                    <th>Data</th>
+                    <th>Doutor</th>
+                    <th>Paciente</th>
+                    <th>Data/Horário</th>
                     <th><a href="/consult/new" class="btn-floating btn-small waves-effect waves-light blue"><i
                             class="material-icons">add</i></a>
                     </th>
@@ -51,6 +53,8 @@
                 <tbody>
                 <tr th:each="consult : ${consult}">
                     <td><span th:text="${consult.id}"></span></td>
+                    <td><span th:text="${consult.getProcess().getDoctor().getName()}"></span></td>
+                    <td><span th:text="${consult.getProcess().getPatient().getName()}"></span></td>
                     <td><span th:text="${consult.getDate().toString()}"></span></td>
                     <td>
                         <a class="btn-floating btn-small waves-effect waves-light blue delete"
