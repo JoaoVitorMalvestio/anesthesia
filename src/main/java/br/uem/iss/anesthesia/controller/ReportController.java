@@ -2,6 +2,7 @@ package br.uem.iss.anesthesia.controller;
 
 import br.uem.iss.anesthesia.controller.AbstractController;
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
+import br.uem.iss.anesthesia.model.entity.PatientPerDoctorFilter;
 import br.uem.iss.anesthesia.model.entity.ProcessModel;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.model.repository.DoctorRepository;
@@ -60,7 +61,10 @@ public class ReportController extends AbstractController {
         return new PatientReportFormView(doctorRepository.findAll());
     }
 
-    //@PostMapping("/patient-report")
+    @PostMapping("/patient-report")
+    public AbstractModelAndView patientReportFilter(PatientPerDoctorFilter filter) {
+        return new PatientReportFormView(doctorRepository.findAll());
+    }
     
     @GetMapping("/exam-registry/{id}")
     public ModelAndView examRegistry(@PathVariable Long id) {

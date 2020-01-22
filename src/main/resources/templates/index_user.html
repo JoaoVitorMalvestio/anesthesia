@@ -22,6 +22,8 @@
                         <th>Tipo Usuário</th>
                         <th><a href="/user/new" class="btn-floating btn-small waves-effect waves-light blue"><i
                                 class="material-icons">add</i></a>
+                            <button title="Socorro" type=" "data-target="modal1"  class="btn-floating btn-small waves-effect waves-light blue tooltipped modal-trigger" data-tooltip="Ajuda"><i
+                                    class="material-icons">help</i></button>
                         </th>
                     </tr>
                     </thead>
@@ -37,6 +39,61 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content center">
+                <h4 class="center">Ajuda do Cadastro de Usuários</h4>
+                </br>
+                <p>Aqui vamos encontrar várias formas de te ajudar:</p>
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Cadastrando Usuários</a>
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Editando Usuários</a>
+                </br>
+                </br>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <h4 class="center blue-grey-text">Cadastrando Usuários</h4>
+                </br>
+                <h5 class="blue-text">Para cadastrar um novo usuário siga o procedimento:</h5>
+                </br>
+                <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">add</i></b></p>
+                <p class="grey-text">*Será aberto a página de Cadastro</p>
+                <p class="blue-text">&rarr;Preencha o campo Nome com o login do Usuário</p>
+                <p class="grey-text">*Este login não deve conter numeros e deve ser diferente de qualquer outro cadastrado no sistema</p>
+                <p class="blue-text">&rarr;Clique no campo Senha e preencha com uma senha</p>
+                <p class="blue-text">&rarr;Clique no botão Salvar para cadastrar o usuário</p>
+                <p class="grey-text">*ou</p>
+                <p class="red-text">&rarr;Clique no botão Voltar para não cadastrar o usuário, a página retornará para a lista de usuários</p>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <h4 class="center blue-grey-text">Editando usuário</h4>
+                </br>
+                <h5 class="blue-text">Para editar um usuário siga o procedimento:</h5>
+                </br>
+                <p class="blue-text">&rarr;Na linha do usuário que quer editar, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">edit</i></b></p>
+                <p class="grey-text">*Será aberto a página do usuário cadastrado</p>
+                <p class="blue-text">&rarr;Clique no(s) campo(s) do usuário que deseja editar</p>
+                <p class="grey-text">*Faça as alterações necessárias</p>
+                <p class="blue-text">&rarr;Clique no botão Salvar para editar o usuário</p>
+                <p class="grey-text">*ou</p>
+                <p class="red-text">&rarr;Clique no botão Voltar para não editar o usuário, a página retornará para a lista de usuário</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
             </div>
         </div>
     </div>
