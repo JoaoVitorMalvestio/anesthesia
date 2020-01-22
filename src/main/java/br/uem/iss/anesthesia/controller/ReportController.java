@@ -98,16 +98,8 @@ public class ReportController extends AbstractController {
         return new ExamRegistryView(examRepository.findById(id).get());
     }
 
-    @GetMapping("/consult-registry/{id}")
-    public ModelAndView consultRegistry(@PathVariable Long id) {
-        return new ConsultRegistryView(appointmentRepository.findById(id).get());
-    }
 
 
-    @GetMapping("/doctor_resume-report")
-    public DoctorResumeReportFormView formDoctorResumeReport() {
-        return new DoctorResumeReportFormView(processRepository.findAll());
-    }
 
     @GetMapping("/process-report")
     public AbstractModelAndView formProcessReport() {
@@ -178,24 +170,19 @@ public class ReportController extends AbstractController {
         mv.addObject("processos", sqlProcess);
         return mv;
     }
-    
-    @GetMapping("/doctor_resume2-report/{id}")
-    public AbstractModelAndView doctorResumeReport(@PathVariable Long id) {
-        String sqlDoctorName = doctorRepository.findById(id).get().getName();
-        String sqlDoctorCRM = doctorRepository.findById(id).get().getCrm();
-        long sqlConsults = appointmentRepository.count();
-        long sqlMedicalProcedure = medicalProcedureRepository.count();
-        long sqlProcess = processRepository.count();
-        long sqlPatient = patientRepository.count();
-        long sqlExam = examRepository.count();
-        AbstractModelAndView mv = new AbstractModelAndView("new_report_doctor_resume");
-        mv.addObject("doctorName", sqlDoctorName);
-        mv.addObject("doctorCRM", sqlDoctorCRM);
-        mv.addObject("consults", sqlConsults);
-        mv.addObject("medicalProcedure", sqlMedicalProcedure);
-        mv.addObject("process", sqlProcess);
-        mv.addObject("patient",sqlPatient);
-        mv.addObject("exam", sqlExam);
-        return mv;
+
+    @GetMapping("/doctor_resume-report")
+    public ModelAndView listDoctors(@RequestParam(value = "filtro_crm", required = false) String crm,
+                                    @RequestParam(value = "filtro_name", required = false) String name,
+                                    @RequestParam(value = "filtro_ativo", required = false, defaultValue = "true") boolean ativo) {
+        Iterable<DoctorModel> doctor;
+        crm     = ((crm == null) ? "" : crm);
+        name    = ((name == null) ? "" : name);
+        if (ativo) {
+            doctor = doctorRepository.findByCrmContainingAndNameContainingAndActiveTrue(crm, name);
+        }else{
+            doctor = doctorRepository.findByCrmContainingAndNameContainingAndActiveFalse(crm, name);
+        }
+        return new DoctorResumeReportFormView(doctor, name, crm, ativo);
     }
 }

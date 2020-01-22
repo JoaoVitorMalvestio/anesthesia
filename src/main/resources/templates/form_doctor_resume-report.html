@@ -2,7 +2,7 @@
 <div th:fragment="corpo">
     <div class="container">
         <div class="row">
-            <h2 class="center">Relatório de Ausências</h2>
+            <h2 class="center">Resumo do Médico</h2>
             <div class="row">
                 <nav>
                     <div class="nav-wrapper blue darken-1">
@@ -14,38 +14,79 @@
                     </div>
                 </nav>
             </div>
-            <div class="row">
-                <form method="GET" th:object="${filter}" action="/doctorResume">
-                    <div class="input-field col s12">
-                        <select th:field="*{doctors}" multiple>
-                            <option value="" disabled>Selecione os exames</option>
-                            <option th:each="doctor : ${doctors}" th:value="${{doctor}}"
-                                    th:text="${doctor}">
-                            </option>
-                        </select>
-                    </div>
-                    <div class="input-field col s2">
-                        <input id="initial" th:field="*{initial}" type="text" class="datepicker">
-                        <label for="initial">Data Inicial</label>
-                    </div>
-                    <div class="input-field col s2">
-                        <input id="end" th:field="*{end}" type="text" class="datepicker">
-                        <label for="end">Data Final</label>
-                    </div>
-                    <div class="col s1">
-                        <button  type="submit"
-                                 class="btn-floating btn-large waves-effect waves-light blue"><i
-                                class="material-icons">done</i></button>
-                    </div>
+            <div class="row col s12">
+                <h3>Escolha o Médico</h3>
+                    <table class="col s12">
+                        <thead>
+                        <tr >
+                            <th>CRM</th>
+                            <th>Nome</th>
+                            <th><button type=""       class="btn-floating btn-small waves-effect waves-light spinner-green tooltipped modal-trigger" data-tooltip="Ajuda"  title="Socorro"  data-target="modal1"><i
+                                    class="material-icons">help</i></button></th>
 
-                </form>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="doctor : ${doctors}">
+                            <td th:text="${doctor.crm}"><span></span></td>
+                            <td th:text="${doctor.name}"><span></span></td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light blue tooltipped"
+                                    data-tooltip="Escolher"><i class="material-icons">done</i></a>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content center">
+                        <h4 class="center">Ajuda do Resumo do Médico</h4>
+                        </br>
+                        <p>Aqui vamos encontrar várias formas de te ajudar:</p>
+                        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Gerando o Reumo do Médico</a>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                    </div>
+                </div>
+
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center blue-grey-text">Gerando o Resumo do Médico</h4>
+                        </br>
+                        <h5 class="blue-text">Para gerar o Resumo do Médico siga o procedimento:</h5>
+                        </br>
+                        <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue">
+                            <i class="material-icons ">done</i></b> na linha em que está o Médico que se deseja Gerar o Resumo</p>
+                        <p class="grey-text">*Será aberto a página do Relatório</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                    </div>
+                </div>
+
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center blue-grey-text">Editando Medicamentos</h4>
+                        </br>
+                        <h5 class="blue-text">Para editar um Medicamento siga o procedimento:</h5>
+                        </br>
+                        <p class="blue-text">&rarr;Na linha de medicamentos que quer editar, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">edit</i></b></p>
+                        <p class="grey-text">*Será aberto a página do medicamento cadastrado</p>
+                        <p class="blue-text">&rarr;Clique no campo do nome se deseja editar e realize as alterações</p>
+                        <p class="blue-text">&rarr;Clique no botão Salvar para editar o medicamento</p>
+                        <p class="grey-text">*ou</p>
+                        <p class="red-text">&rarr;Clique no botão Voltar para não editar o Medicamento, a página retornará para a lista de medicamentos</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-
-
     </div>
 </div>
 </html>
