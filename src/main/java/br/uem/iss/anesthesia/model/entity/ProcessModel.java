@@ -102,4 +102,9 @@ public class ProcessModel extends DefaultModel {
     public ProcessModel(Long id) {
         this.setId(id);
     }
+
+    public String getPacienteMedico(){
+        String texto = "Paciente: "+ this.getPatient().getName() + " | Médico: " + this.getDoctor().getName() ;
+        return texto;
+    }
 }

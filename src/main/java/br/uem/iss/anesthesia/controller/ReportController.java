@@ -2,7 +2,7 @@ package br.uem.iss.anesthesia.controller;
 
 import br.uem.iss.anesthesia.controller.AbstractController;
 import br.uem.iss.anesthesia.controller.request.ProcessReportRequest;
-import br.uem.iss.anesthesia.model.entity.ProcessModel;
+import br.uem.iss.anesthesia.model.entity.*;
 import br.uem.iss.anesthesia.model.repository.AppointmentRepository;
 import br.uem.iss.anesthesia.model.repository.DoctorRepository;
 import br.uem.iss.anesthesia.model.repository.PatientRepository;
@@ -17,7 +17,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -57,10 +59,39 @@ public class ReportController extends AbstractController {
 
     @GetMapping("/patient-report")
     public AbstractModelAndView patientReport() {
-        return new PatientReportFormView(doctorRepository.findAll());
+        LocalDateTime initialDay = LocalDate.now().atStartOfDay();
+        LocalDateTime finalDay = LocalDate.now().plusDays(1).atStartOfDay();
+        return new PatientReportFormView(appointmentRepository.findByDateBetween(initialDay,finalDay),doctorRepository.findAll());
     }
 
-    //@PostMapping("/patient-report")
+    @PostMapping("/patient-report")
+    public AbstractModelAndView patientReportFilter(PatientPerDoctorFilter filter) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        LocalDateTime initialDay;
+        LocalDateTime finalDay;
+        List<AppointmentModel> consults;
+
+        if (filter.getInitial().equals("")) {
+            initialDay = LocalDate.now().atStartOfDay();
+        }
+        else {
+            initialDay = LocalDate.parse(filter.getInitial(), formatter).atStartOfDay();
+        }
+
+        if (filter.getEnd().equals("")) {
+            finalDay = LocalDate.now().plusDays(1).atStartOfDay();
+        }
+        else {
+            finalDay = LocalDate.parse(filter.getEnd(), formatter).plusDays(1).atStartOfDay();
+        }
+
+        if (filter.getDoctor() == null)
+            consults = appointmentRepository.findByDateBetween(initialDay,finalDay);
+        else
+            consults = appointmentRepository.findByDateBetweenAndDoctor(initialDay,finalDay,filter.getDoctor());
+
+        return new PatientReportFormView(consults,filter,doctorRepository.findAll(),null);
+    }
     
     @GetMapping("/exam-registry/{id}")
     public ModelAndView examRegistry(@PathVariable Long id) {

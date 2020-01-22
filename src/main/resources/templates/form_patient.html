@@ -9,12 +9,14 @@
                         <div class="col s12">
                             <a class="breadcrumb" th:href="@{/}">Home</a>
                             <a class="breadcrumb">Cadastro de Pacientes</a>
+                            <a style="float: right"><button title="Socorro" type=" "data-target="modal1"  class="btn-floating btn-small waves-effect waves-light blue tooltipped modal-trigger" data-tooltip="Ajuda"><i
+                                    class="material-icons">help</i></button></a>
                         </div>
                     </div>
                 </nav>
             </div>
 
-            <th:block th:include="message"></th:block>
+            <th:block th:if="${!(message == null)}" th:include="message"></th:block>
 
             <form action="#" th:action="@{/patient}" th:object="${patient}" method="post">
                 <input id="id" th:field="*{id}" type="hidden">
@@ -118,6 +120,42 @@
                 </button>
                 <a href="/patient" class="waves-effect waves-light btn">Voltar</a>
             </form>
+        </div>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4 class="center blue-grey-text">Cadastrando Pacientes</h4>
+                </br>
+                <h5 class="blue-text">Para cadastrar um novo paciente siga o procedimento:</h5>
+                </br>
+                <p class="blue-text">&rarr;Preencha o campo Nome com o nome do paciente</p>
+                <p class="grey-text">*Este nome ficará disponivel para que seja buscado posteriormente no sistema</p>
+                <p class="blue-text">&rarr;Clique no campo Sobrenome e preencha com o sobrenome do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Sexo e selecione o sexo do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Data de Nascimento e preencha com a data de nascimento do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Religião e preencha com a religião do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Estado civil e selecione o estado civil do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Cidade e preencha com a cidade do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Unidade Federativa e preencha com a Unidade Federativa do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo CEP e preencha com o CEP do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Endereço e preencha com o Endereço do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Telefone fixo e preencha com o Telefone fixo do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Telefone celular e preencha com o Telefone celular do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Email e preencha com o Email do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo CPF e preencha com a CPF do paciente</p>
+                <p class="grey-text">*deve ser utilizado um CPF válido</p>
+                <p class="blue-text">&rarr;Clique no campo RG e preencha com o RG do paciente</p>
+                <p class="blue-text">&rarr;Clique no campo Antecedentes e selecione doenças que o paciente já teve</p>
+                <p class="grey-text">*caso não tiver, pode deixar em branco</p>
+                <p class="blue-text">&rarr;Clique no campo Medicamentos e selecione medicamentos que o paciente utiliza</p>
+                <p class="grey-text">*caso não tiver, pode deixar em branco</p>
+                <p class="blue-text">&rarr;Clique no botão Salvar para cadastrar o paciente</p>
+                <p class="grey-text">*ou</p>
+                <p class="red-text">&rarr;Clique no botão Voltar para não cadastrar o paciente, a página retornará para a lista de pacientes</p>
+
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
         </div>
     </div>
 </div>
