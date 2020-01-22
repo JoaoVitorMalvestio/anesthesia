@@ -39,8 +39,10 @@ public class SaveUserBusiness extends SaveModelBusiness<UserModel> {
         nameNotNumbersValidator.validate(model.getLogin());
         passwordNotNullValidator.validate(model.getPassword());
 
+        boolean novo = model.getId() == null;
+
         Set<UserModel> found = repository.findByLoginContaining(model.getLogin());
-        if (!found.isEmpty() && model.getId().equals(0)) {
+        if (!found.isEmpty() && novo) {
             throw new UserLoginAlreadyExistExpection(model.getLogin());
         }
     }

@@ -40,6 +40,22 @@
                 </form>
             </div>
             <th:block th:if="${!(message == null)}" th:include="message"></th:block>
+            <table >
+                <thead>
+                <tr >
+                    <th>Paciente</th>
+                    <th>Data Hora</th>
+                    <th>Processo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="consult : ${consult}">
+                    <td th:text="${consult.patient.getName()}"><span></span></td>
+                    <td th:text="${consult.date}"><span></span></td>
+                    <td th:text="${consult.process.medicalProcedure.getName()}"><span></span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
