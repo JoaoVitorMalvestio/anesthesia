@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
-    @GetMapping
+    @GetMapping("/")
     public ModelAndView home(HttpSession session) {
         UserModel userLogado = (UserModel) session.getAttribute("usuarioLogado");
 
