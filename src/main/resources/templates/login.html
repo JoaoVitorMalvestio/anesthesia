@@ -7,18 +7,18 @@
             <h4 class="truncate bg-card-user">
                 <div class="row login">
                     <h4>Inicia sessão</h4>
-                    <form class="col s12">
+                    <form action="#" th:action="@{/login}" th:object="${user}" method="post">
                         <div class="row">
                             <div class="input-field col m12 s12">
                                 <i class="material-icons iconis prefix">account_box</i>
-                                <input id="login" type="text" class="validate">
+                                <input id="login" type="text" class="validate" th:field="*{login}">
                                 <label for="login">Login</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col m12 s12">
                                 <i class="material-icons iconis prefix">enhanced_encryption</i>
-                                <input id="password" type="password" class="validate">
+                                <input id="password" type="password" class="validate" th:field="*{password}">
                                 <label for="password">Senha</label>
                             </div>
                         </div>

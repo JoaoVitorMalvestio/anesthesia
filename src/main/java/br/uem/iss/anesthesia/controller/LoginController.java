@@ -10,14 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
-
-    public static final String HOME = "/login";
 
     @Autowired
     private LoginUserBusiness loginUserBusiness;
@@ -43,13 +43,12 @@ public class LoginController {
         }
     }
 
-    @GetMapping("/logoff")
+    @GetMapping("/false")
     public ModelAndView logOff(HttpSession session) {
         session.setAttribute("usuarioLogado", null);
 
         return viewWithoutMessage(new UserModel());
     }
-
 
     private LoginView viewWithoutMessage(UserModel user) {
         return viewWithMessage(user, null);
