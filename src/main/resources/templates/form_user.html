@@ -14,7 +14,7 @@
                     </div>
                 </nav>
             </div>
-            <th:block th:if="${!(message == null)}" th:include="message"></th:block>
+            <th:block th:include="message"></th:block>
             <form action="#" th:action="@{/user}" th:object="${user}" method="POST">
                 <input id="id" th:field="*{id}" type="hidden">
                 <div class="row">

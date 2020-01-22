@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <body onload="window.print()">
+    <div class="container">
+        <div class="panel-body">
+            <h1>Relatório de Listagens</h1>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Médicos</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="doctor : ${doctors}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${doctor}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Pacientes</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="paciente : ${pacientes}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${paciente}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr >
+                    <th class="text-center col-md-1">Consultas</th>
+                    <th class="text-center col-md-1">Total</th>
+                </tr>
+                <tr th:each="consult : ${consults}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${consults}"></td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Processos</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="process : ${processos}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${process}"> 0</td>
+                </tr>
+
+                </thead>
+            </table>
+
+        </div>
+
+
+
+
+    </div>
+    </body>
+</div>
+</html>

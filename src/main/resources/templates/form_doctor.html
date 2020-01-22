@@ -9,22 +9,24 @@
                         <div class="col s12">
                             <a class="breadcrumb" th:href="@{/}">Home</a>
                             <a class="breadcrumb" th:href="@{/doctor}">Cadastro de Médicos</a>
+                            <!--/*@thymesVar id="metodo" type=""*/-->
                             <a class="breadcrumb" th:text="${metodo} + Médicos"></a>
                         </div>
                     </div>
                 </nav>
             </div>
             <!--<th:block th:include="message"></th:block>-->
+            <!--/*@thymesVar id="doctor" type=""*/-->
             <form action="#" th:action="@{/doctor}" th:object="${doctor}" method="POST" id="form_doctor">
                 <input id="id" th:field="*{id}" type="hidden">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="name" th:field="*{name}" type="text" required>
-                        <label for="name">Nome</label>
+                        <label for="name">Nome*</label>
                     </div>
                     <div class="input-field col s6">
                         <input id="crm" th:field="*{crm}" type="text" required>
-                        <label for="crm">CRM</label>
+                        <label for="crm">CRM*</label>
                     </div>
                 </div>
                 <div class="row">
@@ -42,6 +44,7 @@
                     </div>
                 </div>
                 <span class="erro_atendimento" style="color: #F44336" hidden>Por favor, preencha um dia de atendimento</span>
+                *
                 <div class="row" id="dias_atendimento">
                     <div class="col s12 m3">
                         <div class="card">
@@ -188,13 +191,20 @@
                                     </label>
                                 </p>
                             </div>
+
                         </div>
+
                     </div>
+
+
                 </div>
+
                 <button class="waves-effect waves-light btn" type="button" onclick="validaform()">Salvar
                     <i class="material-icons right">send</i>
                 </button>
                 <a href="/doctor" class="waves-effect waves-light btn">Voltar</a>
+
+               <p>(*) Campo obrigatório</p>
             </form>
         </div>
     </div>

@@ -1,0 +1,102 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="corpo">
+    <body onload="window.print()">
+    <div class="container">
+        <div class="panel-body">
+            <h1>Resumo do Médico</h1>
+            </br>
+            <h3>Dados do Médico</h3>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Nome</th>
+                </tr>
+                <tr th:each="doctorName : ${doctorName}">
+                    <td class="text-center col-md-1"  th:text="${doctorName}"> 0</td>
+                </tr>
+                <tr>
+                    <th class="text-center col-md-1">CRM</th>
+                </tr>
+                <tr th:each="doctorCRM : ${doctorCRM}">
+                    <td class="text-center col-md-1"  th:text="${doctorCRM}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr >
+                    <th class="text-center col-md-1">Consultas</th>
+                    <th class="text-center col-md-1">Total</th>
+                </tr>
+                <tr th:each="consults : ${consults}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${consults}"></td>
+                </tr>
+                </thead>
+            </table>
+
+
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Procedimentos</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="medicalProcedure : ${medicalProcedure}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${medicalProcedure}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Processos</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="process : ${process}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1" th:text="${process}"> 0</td>
+                </tr>
+
+                </thead>
+            </table>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Pacientes</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="patient : ${patient}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${patient}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th class="text-center col-md-1">Exames</th>
+                    <th class="text-center col-md-1"> Total</th>
+                </tr>
+                <tr th:each="exam : ${exam}">
+                    <td class="text-center col-md-1"></td>
+                    <td class="text-center col-md-1"  th:text="${exam}"> 0</td>
+                </tr>
+                </thead>
+            </table>
+
+
+        </div>
+
+
+
+
+    </div>
+    </body>
+</div>
+</html>

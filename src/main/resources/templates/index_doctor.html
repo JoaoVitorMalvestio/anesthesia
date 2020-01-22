@@ -36,6 +36,8 @@
                                 <i class="material-icons">clear_all</i></a>
                             <button type="submit" class="btn-floating btn-large waves-effect waves-light blue tooltipped" data-tooltip="Pesquisar"><i
                                     class="material-icons">search</i></button>
+                            <button title="Socorro" type=" "data-target="modal1"  class="btn-floating btn-large waves-effect waves-light blue tooltipped modal-trigger" data-tooltip="Ajuda"><i
+                                    class="material-icons">help</i></button>
                         </div>
                     </div>
                 </form>
@@ -65,6 +67,119 @@
                 </tr>
                 </tbody>
             </table>
+            <div id="modal1" class="modal">
+                <div class="modal-content center">
+                    <h4 class="center">Ajuda do Cadastro de Médicos</h4>
+                    </br>
+                    <p>Aqui vamos encontrar várias formas de te ajudar:</p>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Cadastrando Médico</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Editando Médico</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal4">Consultando Médicos</a>
+                    </br>
+                    </br>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal5">Removendo Médico</a>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal7">Limpar campos de Pesquisa</a>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Cadastrando Médico</h4>
+                    </br>
+                    <h5 class="blue-text">Para cadastrar um novo Médico siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">add</i></b></p>
+                    <p class="grey-text">*Será aberto a página de Cadastro</p>
+                    <p class="blue-text">&rarr;Preencha o campo Nome com o nome do Médico (campo obrigatório)</p>
+                    <p class="grey-text">*Este nome ficará disponivel para que seja buscado posteriormente no sistema</p>
+                    <p class="blue-text">&rarr;Preencha o campo CRM com o número do Médico (este campo aceita apenas números e é obrigatório)</p>
+                    <p class="blue-text">&rarr;Preencha o campo Telelefone Residencial </p>
+                    <p class="blue-text">&rarr;Preencha o campo Telelefone Celular </p>
+                    <p class="blue-text">&rarr;Preencha o campo Email (aceita apenas emails validos) </p>
+                    <p class="blue-text">&rarr;Preencha o horários de atedimento do médico clicando nos campos (campo obrigatório) </p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para cadastrar o Médico</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não cadastrar o Médico, a página retornará para a lista de Médicos</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Editando Médico</h4>
+                    </br>
+                    <h5 class="blue-text">Para editar um Médico siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha do Médico que quer editar, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">edit</i></b></p>
+                    <p class="grey-text">*Será aberto a página do Médico cadastrado</p>
+                    <p class="blue-text">&rarr;Clique no(s) campo(s) do Médico que deseja editar</p>
+                    <p class="grey-text">*Faça as alterações necessárias</p>
+                    <p class="blue-text">&rarr;Clique no botão Salvar para editar o Médico</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Voltar para não editar o Médico, a página retornará para a lista de Médicos</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal4" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Consultando Médico</h4>
+                    </br>
+                    <h5 class="blue-text">Para Consultar um Médico siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Clique no campo Nome e preencha o nome, ou parte, para consultar o nome do Médico</p>
+                    <p class="blue-text">&rarr;Escolha o campo Ativo, para Sim ou Não</p>
+                    <p class="blue-text">&rarr;Digite o crm do Médico desejado</p>
+                    <p class="blue-text">&rarr;Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">search</i></b> para pesquisar</p>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+            <div id="modal5" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Removendo Médico</h4>
+                    </br>
+                    <h5 class="blue-text">Para Remover um Médico siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha do Médico que quer remover, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">delete</i></b></p>
+                    <p class="grey-text">*Será aberto uma janela</p>
+                    <p class="blue-text">&rarr;Clique no botão Sim para remover o Médico</p>
+                    <p class="grey-text">*ou</p>
+                    <p class="red-text">&rarr;Clique no botão Cancelar para não remover o Médico, a página retornará para a lista de Médicos</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+
+
+
+            <div id="modal7" class="modal">
+                <div class="modal-content">
+                    <h4 class="center blue-grey-text">Limpar Campo de Pesquisa</h4>
+                    </br>
+                    <h5 class="blue-text">Para Limpar o campo de pesquisa de um Médico siga o procedimento:</h5>
+                    </br>
+                    <p class="blue-text">&rarr;Na linha de Pesquisa, Clique no botão <b class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons ">clear_all</i></b></p>
+                    <p class="grey-text">*Será limpo o campo nome,crm e ativo.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <div id="confirm_dialog" class="modal">

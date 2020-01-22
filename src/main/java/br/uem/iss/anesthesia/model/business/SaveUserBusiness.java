@@ -1,32 +1,23 @@
 package br.uem.iss.anesthesia.model.business;
 
 import br.uem.iss.anesthesia.model.business.exception.BusinessRuleException;
-import br.uem.iss.anesthesia.model.business.exception.IncorrectUserExpection;
-import br.uem.iss.anesthesia.model.business.exception.UserLoginAlreadyExistExpection;
 import br.uem.iss.anesthesia.model.business.validator.NameNotNullValidator;
 import br.uem.iss.anesthesia.model.business.validator.NameNotNumbersValidator;
-import br.uem.iss.anesthesia.model.business.validator.PasswordNotNullValidator;
 import br.uem.iss.anesthesia.model.entity.UserModel;
-import br.uem.iss.anesthesia.model.repository.UserRepository;
+import br.uem.iss.anesthesia.model.repository.MedicalProcedureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-
 @Service
 public class SaveUserBusiness extends SaveModelBusiness<UserModel> {
-    private UserRepository repository;
+
     private NameNotNullValidator nameNotNullValidator;
     private NameNotNumbersValidator nameNotNumbersValidator;
-    private PasswordNotNullValidator passwordNotNullValidator;
 
     @Autowired
-    public SaveUserBusiness(UserRepository repository, NameNotNullValidator nameNotNullValidator, NameNotNumbersValidator nameNotNumbersValidator, PasswordNotNullValidator passwordNotNullValidator) {
+    public SaveUserBusiness(MedicalProcedureRepository repository, NameNotNullValidator nameNotNullValidator) {
         super(repository);
-        this.repository = repository;
         this.nameNotNullValidator = nameNotNullValidator;
-        this.nameNotNumbersValidator = nameNotNumbersValidator;
-        this.passwordNotNullValidator = passwordNotNullValidator;
     }
 
     @Override
@@ -37,11 +28,6 @@ public class SaveUserBusiness extends SaveModelBusiness<UserModel> {
     protected void validateFields(UserModel model) throws BusinessRuleException {
         nameNotNullValidator.validate(model.getLogin());
         nameNotNumbersValidator.validate(model.getLogin());
-        passwordNotNullValidator.validate(model.getPassword());
-
-        Set<UserModel> found = repository.findByLoginContaining(model.getLogin());
-        if (!found.isEmpty() && model.getId().equals(0)) {
-            throw new UserLoginAlreadyExistExpection(model.getLogin());
-        }
+        nameNotNullValidator.validate(model.getPassword());
     }
 }

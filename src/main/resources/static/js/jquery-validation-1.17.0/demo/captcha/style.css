@@ -19,7 +19,7 @@ a:hover, a:focus, a:active {
 }
 
 h1 {
-	margin: 2% 0%;
+	margin: 2% 0;
 	padding: 1%;
 	border-bottom: 1px solid #ddd;
 	background-color: #f8f8f8;
@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-	margin: 2% 0%;
+	margin: 2% 0;
 	padding: 1%;
 	border-bottom: 1px solid #ddd;
 	background-color: #f8f8f8;
@@ -37,7 +37,7 @@ h2 {
 }
 
 h3 {
-	margin: 2% 0%;
+	margin: 2% 0;
 	padding: 1%;
 	border-bottom: 1px solid #ddd;
 	background-color: #f8f8f8;
@@ -75,7 +75,7 @@ form {
 
 fieldset {
 	border: 1px solid #ddd;
-	margin: 0% 0% 2% 0%;
+	margin: 0 0 2% 0;
 	padding: 2%;
 }
 
@@ -116,7 +116,7 @@ fieldset label {
 }
 
 fieldset label.error {
-	color: red;	
+	color: red;
 }
 
 fieldset label.valid {
@@ -136,5 +136,5 @@ fieldset input#captcha {
 
 fieldset input#submit {
 	display: block;
-	margin: 2% 0% 0% 0%;
+	margin: 2% 0 0 0;
 }
